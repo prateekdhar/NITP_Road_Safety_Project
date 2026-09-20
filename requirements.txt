@@ -1,0 +1,7 @@
+ultralytics==8.3.203
+streamlit==1.63.0
+pandas>=2,<4
+Pillow>=10.4,<12
+PyYAML>=6.0,<7
+defusedxml>=0.7.1,<1
+pytest>=8,<9

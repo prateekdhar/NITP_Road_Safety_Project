@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {"name": "Road Damage: App", "type": "debugpy", "request": "launch", "module": "streamlit", "args": ["run", "app.py"], "cwd": "${workspaceFolder}", "console": "integratedTerminal", "justMyCode": true},
+    {"name": "Road Damage: Prepare RDD2022", "type": "debugpy", "request": "launch", "module": "road_damage.dataset", "args": ["--source", "${input:datasetPath}"], "cwd": "${workspaceFolder}", "console": "integratedTerminal"},
+    {"name": "Road Damage: Train baseline", "type": "debugpy", "request": "launch", "module": "road_damage.train", "args": ["--variant", "baseline", "--epochs", "300", "--device", "${input:device}"], "cwd": "${workspaceFolder}", "console": "integratedTerminal"},
+    {"name": "Road Damage: Train PD-inspired", "type": "debugpy", "request": "launch", "module": "road_damage.train", "args": ["--variant", "pd", "--epochs", "300", "--device", "${input:device}"], "cwd": "${workspaceFolder}", "console": "integratedTerminal"},
+    {"name": "Road Damage: Evaluate test split", "type": "debugpy", "request": "launch", "module": "road_damage.evaluate", "args": ["--weights", "${input:weights}", "--split", "test"], "cwd": "${workspaceFolder}", "console": "integratedTerminal"}
+  ],
+  "inputs": [
+    {"id": "datasetPath", "type": "promptString", "description": "Folder containing extracted RDD2022 images and XML annotations", "default": "data/raw/RDD2022"},
+    {"id": "device", "type": "pickString", "description": "Training device", "options": ["cpu", "0"], "default": "cpu"},
+    {"id": "weights", "type": "promptString", "description": "Trained checkpoint", "default": "runs/train/baseline/weights/best.pt"}
+  ]
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "file": "longitudinal_crack_1.jpg",
+    "test_source": "data/rdd/images/test/9c9e73828bb920ade3b22a54.jpg",
+    "annotated_category": "longitudinal_crack"
+  },
+  {
+    "file": "longitudinal_crack_2.jpg",
+    "test_source": "data/rdd/images/test/4b9be5ac24e633c9d40b3f9a.jpg",
+    "annotated_category": "longitudinal_crack"
+  },
+  {
+    "file": "transverse_crack_1.jpg",
+    "test_source": "data/rdd/images/test/920f563c4a22aa7946947577.jpg",
+    "annotated_category": "transverse_crack"
+  },
+  {
+    "file": "transverse_crack_2.jpg",
+    "test_source": "data/rdd/images/test/4d43b3681bcf46175d65572b.jpg",
+    "annotated_category": "transverse_crack"
+  },
+  {
+    "file": "alligator_crack_1.jpg",
+    "test_source": "data/rdd/images/test/f129b8bf7780a8b320798e0c.jpg",
+    "annotated_category": "alligator_crack"
+  },
+  {
+    "file": "alligator_crack_2.jpg",
+    "test_source": "data/rdd/images/test/453e1bec3598f8965a3f1b2f.jpg",
+    "annotated_category": "alligator_crack"
+  },
+  {
+    "file": "pothole_1.jpg",
+    "test_source": "data/rdd/images/test/e2182a3fd08c2a78b38c2bb6.jpg",
+    "annotated_category": "pothole"
+  },
+  {
+    "file": "pothole_2.jpg",
+    "test_source": "data/rdd/images/test/eaf6e4c7b8244ba8ece1850f.jpg",
+    "annotated_category": "pothole"
+  }
+]

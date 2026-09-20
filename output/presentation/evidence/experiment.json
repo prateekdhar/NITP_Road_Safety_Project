@@ -1,0 +1,14 @@
+{
+  "data": "C:\\Users\\tirth\\Project\\data\\rdd\\data.yaml",
+  "variant": "baseline",
+  "epochs": 3,
+  "batch": 4,
+  "imgsz": 640,
+  "device": "cpu",
+  "workers": 0,
+  "seed": 42,
+  "name": "first_model",
+  "scratch": false,
+  "python": "3.12.14",
+  "architecture_note": "Baseline or paper-inspired experiment; not an exact paper reproduction"
+}
