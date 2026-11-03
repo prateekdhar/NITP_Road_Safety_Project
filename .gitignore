@@ -1,7 +1,21 @@
+# Local data, generated runs, and model weights are not versioned
 .venv/
-.cache/
 __pycache__/
-.pytest_cache/
-*.pyc
-data/
+*.py[cod]
+*.pt
+*.onnx
+*.engine
+*.log
+*.pid
+data/images/
+data/labels/
+data/processed/images/
+data/processed/labels/
 runs/
+experiments/**/runs/
+experiments/**/preflight/
+experiments/**/validation/
+experiments/**/logs/
+.ultralytics/
+Ultralytics/
+*.cache

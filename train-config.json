@@ -1,0 +1,20 @@
+{
+  "model": "yolo26s.pt",
+  "epochs": 300,
+  "patience": 0,
+  "imgsz": 640,
+  "batch": 4,
+  "device": 0,
+  "workers": 2,
+  "amp": true,
+  "cache": false,
+  "seed": 42,
+  "deterministic": true,
+  "optimizer": "auto",
+  "close_mosaic": 10,
+  "save": true,
+  "save_period": 10,
+  "plots": true,
+  "name": "nrdd2024_yolo26s_300",
+  "exist_ok": false
+}

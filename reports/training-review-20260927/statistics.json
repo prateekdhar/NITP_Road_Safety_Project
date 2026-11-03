@@ -1,0 +1,327 @@
+{
+  "recorded_at_utc": "2026-09-27T06:45:18.983192+00:00",
+  "completion": "300 CSV epochs; terminal test results and metrics.json present; training process no longer running; stderr empty",
+  "best_validation": {
+    "epoch": 86.0,
+    "time": 64097.9,
+    "train/box_loss": 1.67704,
+    "train/cls_loss": 1.71132,
+    "train/l1_loss": 0.01226,
+    "metrics/precision(B)": 0.65836,
+    "metrics/recall(B)": 0.51518,
+    "metrics/mAP50(B)": 0.53446,
+    "metrics/mAP50-95(B)": 0.30678,
+    "val/box_loss": 1.63591,
+    "val/cls_loss": 1.59603,
+    "val/l1_loss": 0.0137,
+    "lr/pg0": 0.021585,
+    "lr/pg1": 0.007195,
+    "lr/pg2": 0.021585,
+    "lr/pg3": 0.007195,
+    "lr/pg4": 0.021585,
+    "lr/pg5": 0.007195,
+    "lr/pg6": 0.021585,
+    "lr/pg7": 0.007195
+  },
+  "final_validation": {
+    "epoch": 300.0,
+    "time": 92952.3,
+    "train/box_loss": 1.07854,
+    "train/cls_loss": 0.58391,
+    "train/l1_loss": 0.00759,
+    "metrics/precision(B)": 0.71741,
+    "metrics/recall(B)": 0.47168,
+    "metrics/mAP50(B)": 0.50604,
+    "metrics/mAP50-95(B)": 0.28793,
+    "val/box_loss": 1.80807,
+    "val/cls_loss": 1.93028,
+    "val/l1_loss": 0.01543,
+    "lr/pg0": 0.000399,
+    "lr/pg1": 0.000133,
+    "lr/pg2": 0.000399,
+    "lr/pg3": 0.000133,
+    "lr/pg4": 0.000399,
+    "lr/pg5": 0.000133,
+    "lr/pg6": 0.000399,
+    "lr/pg7": 0.000133
+  },
+  "test": {
+    "split": "test",
+    "weights": "C:\\Users\\prate\\OneDrive\\Desktop\\RoadDamageDetection\\runs\\nrdd2024_yolo26s_300\\weights\\best.pt",
+    "metrics": {
+      "metrics/precision(B)": 0.6014513265766657,
+      "metrics/recall(B)": 0.5035700825565146,
+      "metrics/mAP50(B)": 0.5088668666913154,
+      "metrics/mAP50-95(B)": 0.28938888783401273,
+      "fitness": 0.28938888783401273
+    },
+    "per_class": [
+      {
+        "name": "D00",
+        "precision": 0.6068854901600024,
+        "recall": 0.5792474344355758,
+        "f1": 0.592744465450561,
+        "map50": 0.6011085042298889,
+        "map50_95": 0.3243172098602877,
+        "support_boxes": {
+          "train": 16409,
+          "val": 4632,
+          "test": 1754
+        }
+      },
+      {
+        "name": "D10",
+        "precision": 0.5776299271197255,
+        "recall": 0.592964824120603,
+        "f1": 0.5851969313520782,
+        "map50": 0.5839653680505417,
+        "map50_95": 0.2805882768378916,
+        "support_boxes": {
+          "train": 7320,
+          "val": 1991,
+          "test": 796
+        }
+      },
+      {
+        "name": "D20",
+        "precision": 0.6834918145235752,
+        "recall": 0.6256762283274216,
+        "f1": 0.6533073931020918,
+        "map50": 0.6781705896104461,
+        "map50_95": 0.37577771083205824,
+        "support_boxes": {
+          "train": 5750,
+          "val": 1466,
+          "test": 604
+        }
+      },
+      {
+        "name": "D30",
+        "precision": 0.06636244017130702,
+        "recall": 0.0625,
+        "f1": 0.06437333493286147,
+        "map50": 0.05620962274389787,
+        "map50_95": 0.02500175043812569,
+        "support_boxes": {
+          "train": 294,
+          "val": 106,
+          "test": 16
+        }
+      },
+      {
+        "name": "D40",
+        "precision": 0.5259377520922154,
+        "recall": 0.4222972972972973,
+        "f1": 0.46845366325185095,
+        "map50": 0.44086934048050336,
+        "map50_95": 0.19709561826727295,
+        "support_boxes": {
+          "train": 2859,
+          "val": 728,
+          "test": 296
+        }
+      },
+      {
+        "name": "D50",
+        "precision": 0.6595385906719395,
+        "recall": 0.6949152542372882,
+        "f1": 0.6767649250488994,
+        "map50": 0.7324956905590668,
+        "map50_95": 0.4599479777512589,
+        "support_boxes": {
+          "train": 652,
+          "val": 159,
+          "test": 59
+        }
+      },
+      {
+        "name": "D60",
+        "precision": 0.5545786294906692,
+        "recall": 0.5810305790375299,
+        "f1": 0.5674965292548556,
+        "map50": 0.5499254866617149,
+        "map50_95": 0.31395734893088034,
+        "support_boxes": {
+          "train": 3546,
+          "val": 1027,
+          "test": 420
+        }
+      },
+      {
+        "name": "D70",
+        "precision": 0.7765810476021804,
+        "recall": 0.8454902607410086,
+        "f1": 0.8095719455075585,
+        "map50": 0.8737129898069733,
+        "map50_95": 0.49115699544025865,
+        "support_boxes": {
+          "train": 2717,
+          "val": 698,
+          "test": 296
+        }
+      },
+      {
+        "name": "D80",
+        "precision": 0.5635075739350418,
+        "recall": 0.631578947368421,
+        "f1": 0.5956046094333858,
+        "map50": 0.5722110747701215,
+        "map50_95": 0.4260459899820934,
+        "support_boxes": {
+          "train": 647,
+          "val": 201,
+          "test": 57
+        }
+      },
+      {
+        "name": "D90",
+        "precision": 1.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "map50": 0.0,
+        "map50_95": 0.0,
+        "support_boxes": {
+          "train": 40,
+          "val": 3,
+          "test": 1
+        }
+      }
+    ],
+    "note": "Precision/recall/F1 are Ultralytics confidence-curve summaries; test is an internal holdout, not the official challenge benchmark."
+  },
+  "dataset": {
+    "images": {
+      "train": 13782,
+      "test": 1509,
+      "val": 3704
+    },
+    "boxes": {
+      "train": {
+        "D00": 16409,
+        "D10": 7320,
+        "D20": 5750,
+        "D50": 652,
+        "D80": 647,
+        "D40": 2859,
+        "D70": 2717,
+        "D60": 3546,
+        "D30": 294,
+        "D90": 40
+      },
+      "test": {
+        "D00": 1754,
+        "D10": 796,
+        "D20": 604,
+        "D60": 420,
+        "D40": 296,
+        "D80": 57,
+        "D70": 296,
+        "D50": 59,
+        "D30": 16,
+        "D90": 1
+      },
+      "val": {
+        "D00": 4632,
+        "D20": 1466,
+        "D40": 728,
+        "D70": 698,
+        "D80": 201,
+        "D10": 1991,
+        "D60": 1027,
+        "D50": 159,
+        "D30": 106,
+        "D90": 3
+      }
+    },
+    "groups": 18995,
+    "training_images_moved_to_validation_to_prevent_leakage": 0,
+    "source": "10.17632/27c8pwsd6v.3",
+    "test": "Internal deterministic grouped holdout; not official unlabeled challenge test",
+    "limitation": "Original-image and identical decoded-pixel grouping; neighboring road frames may still be correlated."
+  },
+  "requested_config": {
+    "model": "yolo26s.pt",
+    "epochs": 300,
+    "patience": 0,
+    "imgsz": 640,
+    "batch": 4,
+    "device": 0,
+    "workers": 2,
+    "amp": true,
+    "cache": false,
+    "seed": 42,
+    "deterministic": true,
+    "optimizer": "auto",
+    "close_mosaic": 10,
+    "save": true,
+    "save_period": 10,
+    "plots": true,
+    "name": "nrdd2024_yolo26s_300",
+    "exist_ok": false
+  },
+  "actual_args_yaml": "task: detect\nmode: train\nmodel: C:\\Users\\prate\\OneDrive\\Desktop\\RoadDamageDetection\\runs\\nrdd2024_yolo26s_300\\weights\\last.pt\ndata: C:\\Users\\prate\\OneDrive\\Desktop\\RoadDamageDetection\\data\\processed\\dataset.yaml\nepochs: 300\ntime: null\npatience: 0\nbatch: 4\nimgsz: 640\nsave: true\nsave_period: 10\ncache: false\ndevice: '0'\nworkers: 2\nproject: C:\\Users\\prate\\.codex\\.chatgpt-projects\\g-p-6ab4b90d33148191897949e681b3333a\\runs\nname: nrdd2024_yolo26s_300\nexist_ok: false\npretrained: true\ncls_remap: true\noptimizer: auto\nverbose: true\nseed: 42\ndeterministic: true\nsingle_cls: false\nrect: false\ncos_lr: false\nclose_mosaic: 10\nresume: C:\\Users\\prate\\OneDrive\\Desktop\\RoadDamageDetection\\runs\\nrdd2024_yolo26s_300\\weights\\last.pt\namp: true\nfraction: 1.0\nprofile: false\nfreeze: null\nmulti_scale: 0.0\ncompile: false\nchannels_last: null\noverlap_mask: true\nmask_ratio: 4\ndropout: 0.0\nval: true\nsplit: val\nsave_json: false\nconf: null\niou: 0.7\nmax_det: 300\nquantize: null\ndnn: false\nplots: true\nnms: null\nsource: null\nvid_stride: 1\nstream_buffer: false\nvisualize: false\naugment: false\nagnostic_nms: false\nclasses: null\nretina_masks: false\nembed: null\nshow: false\nsave_frames: false\nsave_txt: false\nsave_conf: false\nsave_crop: false\nshow_labels: true\nshow_conf: true\nshow_boxes: true\nline_width: null\nformat: torchscript\nkeras: false\noptimize: false\ndynamic: false\nsimplify: true\nopset: null\nworkspace: null\nlr0: 0.01\nlrf: 0.01\nmomentum: 0.937\nweight_decay: 0.0005\nwarmup_epochs: 3.0\nwarmup_momentum: 0.8\nwarmup_bias_lr: 0.0\ndistill_model: null\ndis: 6.0\nbox: 7.5\ncls: 0.5\ncls_pw: 0.0\ndfl: 1.5\npose: 12.0\nkobj: 1.0\nrle: 1.0\nangle: 1.0\ndlog: 1.0\ndgrad: 0.5\ndlam: 1.0\nnbs: 64\nhsv_h: 0.015\nhsv_s: 0.7\nhsv_v: 0.4\ndegrees: 0.0\ntranslate: 0.1\nscale: 0.5\nshear: 0.0\nperspective: 0.0\nflipud: 0.0\nfliplr: 0.5\nbgr: 0.0\nmosaic: 1.0\nmixup: 0.0\ncutmix: 0.0\ncopy_paste: 0.0\ncopy_paste_mode: flip\nauto_augment: randaugment\nerasing: 0.4\ncfg: null\ntracker: tracktrack.yaml\nsave_dir: C:\\Users\\prate\\OneDrive\\Desktop\\RoadDamageDetection\\runs\\nrdd2024_yolo26s_300\n",
+  "model": {
+    "family": "YOLO26s",
+    "training_layers": 260,
+    "training_parameters": 9955604,
+    "training_gflops": 22.8,
+    "fused_evaluation_layers": 120,
+    "fused_evaluation_parameters": 9469050,
+    "fused_evaluation_gflops": 20.8,
+    "input_size": 640,
+    "optimizer": "MuSGD",
+    "framework": "Ultralytics8.4.161 / torch2.11.0+cu128 / Python3.12.14",
+    "gpu": "RTX4060 Laptop 8188MiB"
+  },
+  "timing_segments": [
+    {
+      "first_epoch": 1,
+      "last_epoch": 1,
+      "reported_elapsed_seconds": 874.403
+    },
+    {
+      "first_epoch": 2,
+      "last_epoch": 175,
+      "reported_elapsed_seconds": 135830.0
+    },
+    {
+      "first_epoch": 176,
+      "last_epoch": 300,
+      "reported_elapsed_seconds": 92952.3
+    }
+  ],
+  "sum_reported_segment_hours": 63.793528611111114,
+  "timing_note": "Sum of per-process CSV elapsed counters, splitting when time resets. Excludes interruption downtime, setup, failed partial work, and post-training evaluation. Not a measured GPU-active duration. Resume logs identify epoch2 and176 boundaries.",
+  "evaluation_speed_ms_per_image": {
+    "preprocess": 0.4,
+    "inference": 7.4,
+    "postprocess": 2.2
+  },
+  "speed_note": "Batched validation timing, not live camera/GPS/upload throughput.",
+  "provenance": {
+    "C:\\Users\\prate\\OneDrive\\Desktop\\RoadDamageDetection\\runs\\nrdd2024_yolo26s_300\\weights\\best.pt": {
+      "sha256": "3824502cba92efaf6c7d4e859af715bcadd85efda1af952da66139013ba6a83f",
+      "bytes": 20371397
+    },
+    "C:\\Users\\prate\\OneDrive\\Desktop\\RoadDamageDetection\\runs\\nrdd2024_yolo26s_300\\weights\\last.pt": {
+      "sha256": "205ca70705b67f80298a24f695c59d20d542dcf1900136053163ec47bd6344c4",
+      "bytes": 20371397
+    },
+    "C:\\Users\\prate\\OneDrive\\Desktop\\RoadDamageDetection\\runs\\nrdd2024_yolo26s_300\\results.csv": {
+      "sha256": "3c6a450228e9ab38f0800ddba27b8d30352f9a393ca5054b65f0451d44125dd3",
+      "bytes": 48974
+    },
+    "C:\\Users\\prate\\OneDrive\\Desktop\\RoadDamageDetection\\data\\processed\\split_manifest.json": {
+      "sha256": "25a8ab1f25b485b3db90a6bcfd1d9ae6c44ccaa53479e8dc3561780f7b68817e",
+      "bytes": 10908904
+    },
+    "C:\\Users\\prate\\OneDrive\\Desktop\\RoadDamageDetection\\train-config.json": {
+      "sha256": "59de964efdc28a31d6e9d3dbf8233409b30ce77942dd22ee97957567455e8d60",
+      "bytes": 349
+    },
+    "C:\\Users\\prate\\OneDrive\\Desktop\\RoadDamageDetection\\runs\\nrdd2024_yolo26s_300\\args.yaml": {
+      "sha256": "29fb3a83fc6a9b7c0eee2b947ada97ed21c6d03527d14f99d0e688deaa974765",
+      "bytes": 2140
+    }
+  }
+}

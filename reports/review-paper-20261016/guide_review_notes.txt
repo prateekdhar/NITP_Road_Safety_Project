@@ -1,0 +1,25 @@
+GUIDE REVIEW NOTES
+16 October 2026
+
+Manuscript: Road Damage Detection under Visual Degradation: A Critical Review of Robust Learning, Image Enhancement, and Deployment Evidence
+Authors: Prateek Dhar and Ashish Kumar
+Department: Computer Science and Engineering, National Institute of Technology Patna
+Guide: Dr. Amrita Mohan
+
+The manuscript is a focused critical narrative review with six core journal sources and three supporting references. It is not an exhaustive systematic review and reports no new experimental results. All numerical detector results in Table 2 come from the same published experiment in Wang et al., Table 11; they are not the project's training statistics.
+
+The second Springer article (10.1007/s42947-025-00556-x) was accessible only through its abstract and publisher metadata. Its use is explicitly limited in the manuscript. Obtain the full article through institutional access before extending claims about it.
+
+For the guide's decisions before journal submission:
+1. Confirm whether the focused narrative-review scope is suitable, or expand to a systematic search with recorded databases, search strings, screening criteria, and a broader evidence corpus.
+2. Select the target journal and apply its article-type, length, formatting, and reference requirements.
+3. Confirm the final author list and contributions. The guide is listed separately here, not automatically assigned coauthorship. Add the corresponding-author email and any required ORCID identifiers.
+4. Complete truthful funding, conflict-of-interest, contribution, and AI-assistance declarations according to the selected journal's policies; these have not been invented in the manuscript.
+5. Review and approve the interpretation of each primary paper and the proposed research agenda. Claims of worldwide novelty require a broader novelty search than this selected corpus provides.
+
+Files:
+- road_damage_robustness_review.docx: editable manuscript
+- road_damage_robustness_review.pdf: nine-page print copy, exported through Microsoft Word and visually inspected
+- road_damage_robustness_review.md: editable plain-text source with comparison tables
+
+Existing training processes and checkpoints were not modified for this writing task.

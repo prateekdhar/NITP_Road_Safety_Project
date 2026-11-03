@@ -1,0 +1,56 @@
+PAUSED ROAD DAMAGE TRAINING STATISTICS
+2026-10-15T12:47:35.761371+05:30
+
+Current queue:300/600 epochs. Training and evaluation paused. Checkpoints preserved.
+CLEAN VALIDATION RESULTS - percentages
+Model | Completed epochs | Precision | Recall | mAP50 | mAP50-95
+YOLO26s original | 300 | 65.84 | 51.52 | 53.45 | 30.68
+YOLOv9s baseline | 100 | 66.03 | 50.21 | 52.57 | 30.46
+YOLOv9s noise-augmented | 100 | 65.91 | 50.55 | 53.13 | 30.91
+YOLOv9s broader augmentation | 30 | 64.83 | 48.29 | 50.42 | 28.90
+YOLOv9s teacher guidance | 30 | 65.02 | 49.04 | 50.46 | 28.69
+YOLOv9s proposed modification | 30 | 64.13 | 48.27 | 50.14 | 28.54
+yolov5su | 100 | 65.45 | 46.83 | 50.65 | 29.04
+yolov6s_scratch | 100 | 68.00 | 44.68 | 48.21 | 27.65
+yolov8s | 100 | 68.09 | 46.97 | 50.96 | 29.32
+
+CURRENT QUEUE DETAILS
+yolov5su: best validation epoch 71; parameters 9,126,062; GFLOPs 24.06
+Best checkpoint: ${PROJECT_ROOT}\experiments\detector_comparison_20261014\runs\yolov5su\weights\best.pt
+Verified SHA256: 10d9560e82db949c43baa2ab8702713ff8b0e212b6f61729483881661f5e5437
+yolov6s_scratch: best validation epoch 100; parameters 16,307,790; GFLOPs 43.91
+Best checkpoint: ${PROJECT_ROOT}\experiments\detector_comparison_20261014\runs\yolov6s_scratch\weights\best.pt
+Verified SHA256: 7698a6617ec706385519cd6367cd5f05d1acebdd9b750408ea1bd88430184c12
+yolov8s: best validation epoch 80; parameters 11,139,470; GFLOPs 28.66
+Best checkpoint: ${PROJECT_ROOT}\experiments\detector_comparison_20261014\runs\yolov8s\weights\best.pt
+Verified SHA256: 4aef1d224c4025c529e348fbe2c9d6f379af457a85d8686ecba9e122dd7c7840
+
+Not started: YOLOv10s, YOLO11s, YOLO12s. YOLO-RD blocked pending exact implementation.
+
+SYNTHETIC STRESS VALIDATION (mAP50 / mAP50-95, percent)
+yolov5su: evaluation_complete=True
+  clean: 50.65 / 29.04
+  sensor_noise: 16.41 / 8.45
+  motion_diagonal: 11.42 / 5.04
+  defocus: 20.20 / 9.82
+  mixed_diagonal: 0.57 / 0.32
+yolov6s_scratch: evaluation_complete=True
+  clean: 48.21 / 27.65
+  sensor_noise: 16.59 / 9.19
+  motion_diagonal: 11.07 / 5.03
+  defocus: 19.10 / 9.33
+  mixed_diagonal: 0.95 / 0.45
+yolov8s: evaluation_complete=False
+  clean: 50.96 / 29.32
+
+NOTES
+All displayed scores are clean validation, best checkpoint, except YOLO26s uses recorded best training-validation epoch.
+Shared N-RDD2024 v3 ten-class split:13782train/3704val/1509internaltest;640input.
+30-epoch variants independently fine-tuned the same100-epoch noise checkpoint.
+YOLOv6s bundled implementation trained from scratch; others pretrained. YOLOv5su is updated anchor-free variant.
+Nine completed research runs,890 epochs total,excluding smoke tests. Current queue300/600.
+YOLOv8s stress evaluation was interrupted by requested pause. Resume evaluation without retraining before advancing queue.
+Current launcher skips completed models and would omit unfinished stress evaluation; use a repaired resume sequence.
+Precision and recall are validation confidence-curve summaries; mAP is not classification accuracy.
+
+Per-class metrics and full current-run records are in accompanying statistics.json.

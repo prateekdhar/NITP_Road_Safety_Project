@@ -1,0 +1,304 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[top=23mm,bottom=25mm,left=25mm,right=25mm]{geometry}
+\usepackage{microtype}
+\usepackage{booktabs,array,tabularx}
+\usepackage{caption}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\captionsetup{font=small,labelfont=bf,justification=raggedright,singlelinecheck=false,skip=7pt}
+\urlstyle{same}
+\raggedbottom
+\linespread{1.035}
+\setlength{\textfloatsep}{16pt plus 3pt minus 3pt}
+\setlength{\intextsep}{14pt plus 3pt minus 3pt}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.75}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\makeatletter
+\renewcommand\section{\@startsection{section}{1}{\z@}%
+  {-2.4ex plus -.5ex minus -.2ex}{1.1ex plus .2ex}{\normalfont\large\bfseries}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+  {-1.8ex plus -.4ex minus -.2ex}{.7ex plus .2ex}{\normalfont\normalsize\bfseries}}
+\renewcommand{\maketitle}{%
+  \begin{center}
+  {\fontsize{18}{22}\selectfont\bfseries\@title\par}
+  \vspace{12pt}
+  {\normalsize Prateek Dhar\quad\textbullet\quad Ashish Kumar\par}
+  \vspace{5pt}
+  {\small Department of Computer Science and Engineering\par
+  National Institute of Technology Patna\par}
+  \vspace{5pt}
+  {\small Guide: Dr. Amrita Mohan\par}
+  \end{center}\vspace{5pt}}
+\renewenvironment{abstract}{%
+  \par\noindent\textbf{Abstract}\par\vspace{4pt}
+  \begingroup\small\setlength{\parindent}{0pt}}%
+  {\par\endgroup\vspace{7pt}}
+\makeatother
+\setlength{\parindent}{1em}
+\setlength{\parskip}{2pt}
+\setlength{\emergencystretch}{2em}
+\renewcommand{\arraystretch}{1.22}
+\widowpenalty=10000
+\clubpenalty=10000
+\title{Road Damage Detection under Visual Degradation\\[3pt]
+\large A Critical Review of Robust Learning, Image Enhancement,\\
+and Deployment Evidence}
+\author{Prateek Dhar \and Ashish Kumar}
+\date{\small Department of Computer Science and Engineering\\
+National Institute of Technology Patna\\[5pt]
+Guide: Dr. Amrita Mohan}
+\hypersetup{pdftitle={Road Damage Detection under Visual Degradation},pdfauthor={Prateek Dhar and Ashish Kumar}}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+
+Camera-based road inspection offers a practical route to scalable pavement monitoring, but image noise, blur, low illumination, and atmospheric interference can undermine defect recognition. Recent research addresses these limitations through context-aware detection, specialized expert networks, uncertainty-guided learning, and enhancement-assisted transformers. This focused narrative review critically examines four 2026 Elsevier research articles alongside two Springer reviews and extends the synthesis with recent cross-scenario benchmarking, field-inspection, and engineering-evaluation literature. The synthesis distinguishes bounding-box detection from pixel-level crack segmentation and evaluates the relationship between algorithmic improvements, degradation coverage, benchmark comparability, and deployment evidence. Reported accuracy gains are informative within individual experimental protocols, but differences in class definitions, dataset partitions, and evaluation tasks prevent a defensible cross-paper ranking. In particular, performance on a seven-class N-RDD2024 subset cannot be treated as equivalent to performance on its ten-class release. The reviewed literature already establishes noise-aware enhancement and robustness-oriented learning; consequently, adding augmentation or attention alone is an insufficient novelty claim. The synthesis identifies candidate research directions in generalization to unseen compound degradations, preservation of small damage structures, and reliable video inspection under resource constraints, while recognizing existing work on domain transfer and operational evaluation. A controlled evaluation framework is proposed that separates clean accuracy, corruption sensitivity, real-world transfer, and operational utility. The review concludes that progress should be demonstrated through reproducible, task-aligned robustness evidence rather than isolated improvements in aggregate detection scores.
+
+\end{abstract}
+{\small\noindent\textbf{Keywords:} road damage detection; pavement inspection; visual degradation; noise robustness; motion blur; N-RDD2024; object detection; knowledge distillation\par}
+
+\section{Introduction}
+
+Automated pavement inspection connects visual recognition with a practical maintenance decision: where a defect is located, what type of defect it represents, and whether it warrants inspection or repair. A camera mounted on a routinely operated vehicle can provide repeated observations without requiring a dedicated survey for every road segment. However, a recognizable defect in a carefully selected still image may become difficult to identify during vehicle motion, poor lighting, or adverse weather. The relevant research problem therefore extends beyond maximizing accuracy on a fixed image collection.
+
+Recent surveys place deep learning within a broader road-inspection landscape. Abdelwahed et al. \cite{r1} review real-time detection methods and datasets, including detector families and computational considerations. Hemdan and Al-Atroush \cite{r2} discuss intelligent crack detection together with Internet of Things and digital-twin integration. These perspectives motivate attention to both visual recognition and its place in an operational inspection system. Neither a detection score nor the use of a recent model, by itself, establishes that a system can reliably support municipal maintenance.
+
+Four recent journal studies provide complementary approaches to this problem. YOLO-RD improves context modeling, feature processing, and class-balanced learning \cite{r3}. A multi-expert framework introduces specialized feature extraction and cross-scale attention \cite{r4}. Paced Curriculum Self-Distillation (PCSD) addresses difficult crack pixels under degraded smartphone imagery \cite{r5}. Noise-aware enhancement-assisted real-time detection transformer (NER) couples image restoration with pavement damage detection under haze and low illumination \cite{r6}. These contributions make a broad claim that ``noise has not been addressed'' untenable. The more useful question is which kinds of degradation, transfer conditions, and operational outcomes remain insufficiently demonstrated.
+
+This review contributes a task-aware synthesis of these approaches, an audit of the comparability of their evidence, and a research agenda for evaluating robust vehicle-based inspection. Its emphasis is on the boundary between what a reported experiment establishes and what remains a plausible but untested extension. The proposed evaluation framework is a methodological recommendation; no new model performance is reported.
+
+\section{Review scope and evidence assessment}
+
+This article is a focused critical narrative review, not an exhaustive systematic review or meta-analysis. The core corpus comprises four 2026 Elsevier research articles \cite{r3,r4,r5,r6} selected for their direct relevance to road damage recognition, degraded imaging, or efficient deployment, and two Springer reviews \cite{r1,r2} that establish the wider methodological and systems context. Supporting sources address dataset provenance and an earlier segmentation architecture \cite{r7,r8,r9}. A targeted extension adds three 2026 journal articles on cross-scenario benchmarking, cross-domain field inspection, and engineering-oriented evaluation, discussed in Section~\ref{sec:extended}. Bibliographic details and publisher records were checked on 16 October 2026. Publication years follow the journal issue where available: reference \cite{r2} appeared online in 2025 and is assigned to a 2026 volume.
+
+Full texts of the four core research articles and the open-access review \cite{r1} informed the synthesis. For the subscription review \cite{r2}, the accessible abstract and bibliographic record support only its broad thematic positioning; its full-text methods and conclusions were not independently assessed. References appearing within a review were not automatically treated as primary evidence. The selection is purposive and does not support claims about the prevalence of a technique across the entire field. No database-wide search count, screening flow, or quantitative pooled effect is claimed.
+
+The targeted extension used web searches combining ``road damage detection'', ``motion blur'', ``noise robustness'', ``benchmark'', ``cross-domain'', and ``2026'', followed by checks of publisher pages and institutional publication records. Sources were selected for direct relevance to transfer evaluation or deployment rather than to meet a reference-count target. The added experimental studies were assessed through accessible publisher abstracts, introductions, and institutional records; their full experimental protocols were not independently audited. The additional open-access review supplied engineering-evaluation context. This access distinction limits the detail and strength of the added claims, and the search remains non-exhaustive.
+
+For each research study, the assessment considers five questions: What is the prediction task? Which datasets and class definitions are used? Which adverse conditions are actually evaluated? What does the comparison control? What evidence supports deployment? Author-acknowledged limitations are distinguished from the methodological implications drawn in this review. Publication in an established journal is a useful provenance criterion, but does not remove the need to inspect evaluation design, reproducibility, and the scope of the reported results.
+
+\section{Tasks, degradations, and benchmark comparability}
+
+\subsection{Detection and segmentation answer different questions}
+
+Bounding-box detection identifies damage instances through category labels and spatial boxes. Pixel-level segmentation identifies the image regions assigned to a defect. Their outputs overlap in purpose but are not interchangeable. A detector can localize a crack without recovering its width or continuity; a segmenter can preserve crack geometry without distinguishing the multiple defect categories required by a maintenance inventory. DeepCrack provides an earlier example of hierarchical, multi-scale feature learning for crack segmentation \cite{r8}, while PCSD extends the discussion toward learning under challenging image conditions \cite{r5}.
+
+Detection precision measures the proportion of predicted detections that are correct under a specified matching rule; recall measures the proportion of annotated objects recovered. Average precision summarizes a precision--recall relationship. mAP50 averages class AP at an intersection-over-union threshold of 0.50, whereas mAP50--95 additionally averages over ten IoU thresholds from 0.50 to 0.95 in increments of 0.05. The latter places greater emphasis on localization quality. Segmentation IoU and Dice evaluate pixel overlap. An IoU or F1 value from a segmentation study cannot be substituted for detection mAP. All reported comparisons therefore require an explicit task and metric definition.
+
+\subsection{Visual degradation is not a single variable}
+
+Noise introduces unwanted intensity variation; motion and defocus blur suppress or redistribute spatial detail. Low illumination can reduce contrast and increase acquisition noise, while haze changes contrast through atmospheric effects. Shadows and wet reflections can resemble or obscure damage without behaving like additive noise. These distinctions matter because a method that suppresses random noise may also remove fine crack structures, and a model trained on synthetic haze need not tolerate vehicle-induced motion blur.
+
+The taxonomy used here separates acquisition effects, environmental interference, and scene ambiguity. It also distinguishes individual degradations from compound conditions, such as low light combined with motion blur and compression. This is an analytical framework for organizing experiments, not a claim that the reviewed studies tested every category. A robustness claim should specify the corruption family, severity, whether it was observed during training, and whether the evaluation images were synthetically altered or captured under real conditions.
+
+\subsection{Dataset identity must be preserved}
+
+N-RDD2024 version 3 is an edited and expanded road-defect resource containing ten labeled categories: longitudinal, transverse, alligator, and repaired cracks; potholes; pedestrian-crossing and lane-line blurs; manhole covers; patchy road sections; and rutting \cite{r7}. The marking-related ``blur'' labels describe defect categories and should not be interpreted as annotations of camera motion blur. RDD2022 is a separate multinational dataset documented in a dedicated dataset paper \cite{r9}. Dataset names alone are insufficient to establish equivalent experimental conditions.
+
+Wang et al. \cite{r3} evaluate a cleaned N-RDD2024 subset containing seven categories, excluding the two marking categories and manhole covers. Their reported partition contains 12,625 training, 1,750 validation, and 3,492 test images. The article describes repurposing the original validation set as a test set after cleaning and drawing a new validation subset from training data. These details, rather than an approximate split ratio, define the comparison. A ten-class experiment using another partition cannot claim superiority merely because its mAP is numerically higher.
+
+Likewise, the SVRDD resource used in NER \cite{r6} must not be conflated with N-RDD2024. A benchmark comparison should preserve the dataset release, class map, image exclusions, split identifiers, and annotation policy. For video-derived data, route or sequence separation is especially important: adjacent frames can contain nearly identical damage observations, making randomly separated images a weak test of transfer to new roads.
+
+\section{Recent approaches to robust pavement recognition}
+
+\subsection{Context-aware and balanced detection: YOLO-RD}
+
+Wang et al. \cite{r3} develop YOLO-RD around a YOLOv8s baseline, combining Convolution Spatial-to-Depth Attention Fusion, Local--Global Enhanced Context Attention, a smoothed-root weighted binary cross-entropy loss, and lightweight feature rearrangement. The design addresses irregular defect appearance, feature fusion, and category imbalance. Its relevance to degraded inspection lies in strengthening damage representation while controlling model complexity; it should not be reclassified as a dedicated motion-deblurring method.
+
+Within the paper's RM-RDD experiment, YOLO-RD reports 66.7\% mAP50 and 41.2\% mAP50--95, compared with 64.8\% and 39.5\% for YOLOv8s. However, the ranking changes on the seven-class N-RDD2024 experiment: YOLOv9s reports 46.9\% and 26.9\%, while YOLO-RD reports 45.5\% and 26.2\%. Table~\ref{tab:comparison} preserves this distinction. The proposed architecture improves on its stated baseline without being the highest-scoring model on every dataset. These results indicate dataset-dependent accuracy--efficiency trade-offs.
+
+The article also reports a vehicle deployment operating at 12 frames per second on a NOVATEK NT98525 platform after pruning and quantization \cite{r3}. This is stronger deployment evidence than parameter counts alone, but the device-specific result should not be generalized to an unmodified implementation or different hardware. Its future-work discussion identifies remaining difficulty with noise, complex backgrounds, and limited examples. An extension should therefore test a clearly specified failure mode while retaining the efficiency rationale of the original design.
+
+\subsection{Specialized experts and cross-scale attention}
+
+Zhao et al. \cite{r4} introduce a shallow detail-perceptive mixture-of-experts module and mixture-of-experts gated cross-scale attention. The rationale is that diverse defect structures and contextual relationships may benefit from specialized processing rather than a uniform representation. Expert-oriented augmentation and load balancing support the learning process. The reported mAP50 improvements over the baseline are 4.5, 6.6, and 4.2 percentage points on CNRDD, RDD2022, and ARSDD, respectively; these are within-study improvements, not transferable estimates for N-RDD2024.
+
+The paper's limitations are particularly relevant to robustness claims. Low-light and rainy scenarios are simulated through augmentation, and the authors acknowledge that synthetic data cannot fully reproduce real extreme environments. They also identify additional computational overhead and propose real dash-camera data collection and lightweight deployment as future work \cite{r4}. Thus, specialized experts offer a credible mechanism for heterogeneous features, but evaluation on augmented imagery does not establish unrestricted generalization to natural adverse conditions.
+
+An additional question raised by this review is whether expert routing remains useful when several degradations occur together or when an unfamiliar camera changes image statistics. Attention visualizations can illustrate model behavior, but they cannot replace held-out quantitative tests of these conditions. Ablations should separate the contribution of expert capacity, augmentation, and routing, since all three can affect the final score.
+
+\subsection{Progressive learning and self-distillation}
+
+Guo et al. \cite{r5} present PCSD for pavement crack segmentation in smartphone-based imaging. A teacher model supplies a prior for ranking pixel difficulty, and training progresses from easier to harder pixels while using ground-truth and teacher-derived supervision. The difficulty quantity is based on discrepancy between teacher prediction and the ground-truth label. Consequently, it is a supervised training signal, not an uncertainty estimator that can be calculated identically on unlabeled deployment images.
+
+The study is useful for understanding how difficult, low-contrast structures can be introduced without destabilizing optimization. Its limitations identify the synthetic-to-real gap, temporal continuity across video frames, and blur associated with vehicle vibration \cite{r5}. These observations support investigation of temporally reliable learning. They do not imply that transferring the same loss directly to a detector will reproduce the segmentation result: boxes, object assignments, background regions, and pixel masks impose different supervision requirements.
+
+For detection, a teacher--student extension would need to define how object correspondence and confidence filtering are handled. It would also need to prevent incorrect teacher predictions from overriding trustworthy annotations. These are proposed adaptation requirements. The existing PCSD method remains prior art for curriculum learning and self-distillation under degraded pavement imagery; combining these generic ideas is not, by itself, an original contribution.
+
+\subsection{Enhancement-assisted transformer detection}
+
+Duan et al. \cite{r6} propose NER, combining noise-aware deformable restoration with content prompt aggregation and an enhanced RT-DETR-based detector. The detection component incorporates an efficient multi-scale attention block and an asymptotic feature pyramid. The approach explicitly treats image enhancement as relevant to the downstream recognition task, rather than assuming that a visually improved image will necessarily improve detection.
+
+On the self-built evaluation dataset, the paper reports precision of 80.9\%, recall of 79.2\%, F1 of 80.0\%, and mAP50 of 78.0\% \cite{r6}. These values characterize that experiment; they cannot be ranked directly against the N-RDD2024 values in Table~\ref{tab:comparison}. The paper also evaluates RDD2020 and SVRDD. Its conclusions explicitly limit the evidence for truly unseen degradation types, including motion blur, rain streaks, lens flare, wet reflections, and snow, and identify embedded deployment as unresolved.
+
+NER therefore provides especially direct prior art against a generic novelty claim based on noise-aware preprocessing plus detection. A stronger extension would establish when enhancement preserves defect evidence, when it introduces harmful artifacts, and how a system behaves outside the degradations represented in training. A clean-image bypass or a lightweight alternative is a candidate for controlled testing, not an established improvement.
+
+\subsection{Cross-scenario benchmarking and field evidence}
+\label{sec:extended}
+
+Li et al. \cite{r10} report a benchmark spanning static close-up, contextual static, dynamic vehicle, and dynamic aerial acquisition. Their study evaluates nine classifiers and nine detectors and considers accuracy, runtime, resource use, and transfer between scenarios. This is direct prior work on controlled cross-scenario evaluation: such evaluation cannot be presented as an unaddressed topic. For the present review, the useful distinction is between changes in acquisition scenario and explicitly held-out noise/blur combinations. Establishing whether the latter are covered requires inspection of the full protocol, rather than inference from the benchmark's title or abstract.
+
+He et al. \cite{r11} describe a pavement crack segmentation framework combining loss-function optimization and staged transfer learning, with validation through UAV field inspection. Their reported focus includes adaptation across target datasets and crack-width assessment. This supplies relevant counterevidence to a blanket claim that pavement models lack field validation. It does not, from the accessible description alone, establish robustness of a multi-class vehicle-mounted detector to unseen compound degradations. A defensible extension must specify those task and acquisition differences and compare against existing adaptation methods.
+
+Hu et al. \cite{r12} review pavement assessment through both recognition performance and engineering utility, including the role of geometric sensing. Their distinction between perception-level evaluation and engineering-level indicators provides prior conceptual support for evaluating an inspection pipeline beyond mAP. Accordingly, this review's operational recommendations are an application of an existing evaluation direction, not a claim to originate it. Together, these additional sources narrow the proposed research agenda toward task-specific, reproducible tests of compound degradation and transfer, while preventing broad claims that benchmarking, adaptation, or engineering integration are absent from the literature.
+
+\section{Comparative synthesis and strength of evidence}
+
+Table~\ref{tab:literature} summarizes the complementary roles of the six core sources. The four research articles attack different parts of the recognition pipeline. Context-aware learning addresses representation; expert specialization addresses heterogeneous features; progressive learning addresses optimization difficulty; and enhancement-assisted detection addresses degraded input. Their mechanisms may be combined, but adding modules increases the need for ablation and latency accounting. A larger composite model is not automatically more robust or more deployable.
+
+\begin{table}[!htbp]\centering\small
+\caption{Scope and evidence boundaries of the core literature}\label{tab:literature}
+
+\begin{tabularx}{\textwidth}{@{}L{.20\textwidth}L{.30\textwidth}Y@{}}
+\toprule
+
+\textbf{Study} & \textbf{Approach or scope} & \textbf{Evidence boundary} \\ \midrule
+
+Abdelwahed et al. \cite{r1} & Review of real-time detection methods and datasets & Broad context; not a new controlled degradation experiment. \\
+
+Hemdan and Al-Atroush \cite{r2} & Review of crack detection and intelligent monitoring systems & Abstract-level context in this review; full text not assessed. \\
+
+Wang et al. \cite{r3} & Context-aware YOLO-RD and balanced loss & Multiple datasets and edge demonstration; accuracy ranking depends on dataset. \\
+
+Zhao et al. \cite{r4} & Specialized experts and cross-scale attention & Synthetic adverse-condition evaluation; natural extreme conditions and compute remain concerns. \\
+
+Guo et al. \cite{r5} & Pixel-level curriculum and self-distillation & Segmentation evidence; transfer to box detection and video continuity require evaluation. \\
+
+Duan et al. \cite{r6} & Noise-aware restoration and transformer detection & Haze and low-light evidence; unseen motion blur and embedded operation not established. \\
+
+\bottomrule
+\end{tabularx}
+\par\vspace{5pt}\begin{minipage}{\textwidth}\footnotesize\raggedright Synthesis of \cite{r1,r2,r3,r4,r5,r6}. Boundaries distinguish reported limitations from the scope of evidence available to this review.\end{minipage}\end{table}
+
+Table~\ref{tab:comparison} reproduces selected numerical results from one common experimental setting in Wang et al. \cite{r3}, rather than assembling a misleading leaderboard across unrelated datasets. YOLOv9s provides the highest mAP in this comparison, while YOLO-RD uses fewer reported parameters and GFLOPs. The distinction supports considering both as reference points for accuracy--efficiency analysis, subject to access to faithful implementations.
+
+\begin{table}[!htbp]\centering\small
+\caption{Published comparison on the seven-class N-RDD2024 subset}\label{tab:comparison}
+
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrr@{}}
+\toprule
+
+\textbf{Model} & \textbf{mAP50 (\%)} & \textbf{mAP50--95 (\%)} & \textbf{Parameters (M)} & \textbf{GFLOPs} \\ \midrule
+
+YOLOv5s & 44.1 & 24.8 & 9.1 & 24.1 \\
+
+YOLOv6s & 41.4 & 23.8 & 16.3 & 44.2 \\
+
+YOLOv8s & 44.1 & 24.9 & 10.8 & 27.3 \\
+
+YOLOv9s & 46.9 & 26.9 & 7.3 & 27.4 \\
+
+YOLOv10s & 43.3 & 25.2 & 8.1 & 24.8 \\
+
+YOLOv11s & 44.6 & 25.7 & 9.4 & 21.6 \\
+
+YOLOv12s & 43.8 & 24.8 & 9.3 & 21.5 \\
+
+YOLO-RD & 45.5 & 26.2 & 6.5 & 24.0 \\
+
+\bottomrule
+\end{tabular*}
+\par\vspace{5pt}\begin{minipage}{\textwidth}\footnotesize\raggedright Source: selected columns from Table 11 of Wang et al. \cite{r3}. Model names are retained as reported. These are published results, not reproductions. Partition: 12,625 training / 1,750 validation / 3,492 test images; seven classes. M = million parameters. GFLOPs are paper-reported values and do not measure complete pipeline latency.\end{minipage}\end{table}
+
+Three evidence boundaries recur. First, improvement on an augmented test set establishes performance against the chosen transformation process; it does not automatically establish resistance to natural camera degradation. Second, a higher clean mAP does not quantify the rate at which performance deteriorates as corruption becomes stronger. Third, a model-level runtime does not measure a complete service that decodes video, processes detections, associates locations, removes duplicates, and uploads records. These are methodological implications of the reviewed evidence, not claims that every paper omits every component.
+
+The extended literature establishes prior work on benchmarking, cross-domain field inspection, and engineering evaluation. It therefore prevents a global claim that no earlier work has addressed these directions or a proposed combination of them. The present corpus establishes promising directions and specific limitations, but a publication claiming a first-of-its-kind architecture would require a broader, documented novelty search. Negative findings, such as enhancement harming thin cracks or a robust model losing clean-image accuracy, would be informative and should be reported alongside positive averages.
+
+\section{Research gaps and a controlled evaluation agenda}
+
+\subsection{Generalization beyond familiar corruptions}
+
+Within the four core experimental studies, a recurring opportunity is stronger evidence of transfer from modeled degradation to real operating conditions. This follows directly from the synthetic-data limitations in \cite{r4,r5} and the explicitly untested degradation families in \cite{r6}. A useful study would train on specified conditions and reserve at least one degradation family, acquisition device, or route for evaluation. It should distinguish a new corruption severity from a genuinely unseen corruption type and should test realistic compound conditions separately.
+
+Synthetic stress tests remain valuable because they offer repeatable severity control. However, they should complement a separately annotated natural-degradation set. Evaluation should retain difficult images and document exclusions instead of silently removing the failures the system is intended to solve. If paired clean and degraded observations are unavailable, the study should acknowledge the resulting uncertainty in separating acquisition effects from scene differences.
+
+\subsection{Structure preservation and task-specific robustness}
+
+Small defects and narrow cracks create a tension between removing nuisance variation and retaining meaningful high-frequency detail. The resulting hypothesis is that task-aware robustness must preserve evidence for localization, not merely improve visual appearance. Tests should report AP by defect category and, where annotation support permits, by object size and corruption severity. A separate segmentation task could examine continuity or boundary quality, but should not be presented as equivalent to box detection.
+
+Restoration quality measures can supplement this analysis, yet downstream detection must remain the primary endpoint for a detection system. Clean-image performance should be reported beside degraded-image performance to reveal whether robustness is obtained by sacrificing routine operation. Rare-class improvements need supporting object counts and uncertainty estimates; a large percentage change based on very few instances is not strong evidence of a stable benefit.
+
+\subsection{Temporal reliability and municipal inspection}
+
+Guo et al. \cite{r5} explicitly identify video continuity as an unresolved challenge. For municipal inspection, the practical unit of interest is a physical defect along a route, rather than every frame containing that defect. A proposed evaluation should therefore distinguish frame-level recognition from event-level reporting. Relevant outcomes include missed physical defects, duplicate reports, temporal inconsistency, and location error, evaluated against a route-level reference inventory.
+
+A camera--location pipeline additionally requires timestamp alignment, image-quality handling, and a rule for retaining representative observations. Tracking can consolidate repeated detections, but cannot recover a defect never reliably observed. These operational proposals extend the review's analysis; they are not new measured capabilities of the methods in \cite{r3,r4,r5,r6}. They should be validated under realistic vehicle speed, camera position, and connectivity conditions before claiming an effective municipal service.
+
+\subsection{A minimum controlled experimental design}
+
+The recommended sequence begins with a reproducible detector baseline and a fixed dataset release, class map, and route-separated split where route identifiers are available. The next experiment adds degradation augmentation alone. A third adds a carefully specified learning or enhancement modification, and a fourth combines it with augmentation. This structure helps distinguish the effect of the proposed mechanism from the effect of simply exposing the model to more varied training images. A conventional enhancement method should be included when the contribution concerns restoration.
+
+All variants should share image resolution, initialization policy, training budget, model-selection rule, and inference settings where technically appropriate. Differences that cannot be controlled should be disclosed. Hyperparameters and checkpoint selection belong to the validation set; the final held-out test set should not drive repeated tuning. Multiple random seeds, or a clear limitation when they are infeasible, are necessary to assess whether small gains are repeatable. Confidence intervals should respect correlated observations; route-level resampling is preferable to treating adjacent video frames as independent samples.
+
+Report clean mAP50 and mAP50--95, per-corruption scores, and the absolute drop from clean performance. Include precision, recall, class support, parameter count, memory use, and complete pipeline latency on named hardware. A corruption average should specify its weighting so that common or easy cases cannot silently dominate the conclusion. Tables should distinguish published results from reproduced baselines and new experiments. Exact configurations, split manifests, checkpoint-selection criteria, and code versions are necessary for another group to interpret the comparison.
+
+\subsection{A defensible contribution statement}
+
+A plausible research question is whether a lightweight, structure-preserving detector can improve generalization to unseen combinations of noise and blur while retaining clean accuracy and acceptable end-to-end latency. The contribution would rest on a defined mechanism, controlled comparisons, and realistic evaluation, not on choosing a newer YOLO version or increasing the number of training epochs. If the method uses curriculum learning, attention, enhancement, or distillation, those established components must be attributed to their prior literature.
+
+Subject to comparison with existing benchmarking and adaptation studies, an empirical contribution may also be valuable: a well-documented natural-degradation benchmark, route-separated evaluation, or analysis demonstrating when existing robust methods fail could address the evidence gap without claiming an entirely new architecture. The current review supports these as research directions. It does not establish their novelty across all published work or predict a guaranteed numerical improvement.
+
+\section{Limitations of the review}
+
+The expanded corpus contains twelve references but remains purposively selected and does not represent the entire road-inspection literature. Increased reference coverage alone does not establish comprehensive coverage or eliminate selection bias. The subscription-access limitation for \cite{r2} restricts its use to thematic context; no detailed finding or absence-of-evidence claim is attributed to its unread full text. The added experimental studies were assessed using accessible summaries and introductory material, which cannot establish all protocol details or exclusions. Published metrics are treated as reported evidence rather than independently reproduced results. Hardware, data selection, and annotation differences prevent quantitative pooling, while incomplete access to exact implementations can constrain reproducibility. The proposed evaluation agenda is a reasoned synthesis and remains to be tested. A later systematic extension should document database searches, eligibility criteria, screening decisions, and a broader range of negative as well as positive findings.
+
+\section{Conclusion}
+
+Recent journal research establishes several credible routes toward road damage recognition under degraded imaging: improved contextual features, expert specialization, progressive supervision, and detection-oriented enhancement. An unresolved question in the reviewed evidence is how reliably these benefits transfer to unseen combinations of degradation, acquisition conditions, and defect scales within complete inspection workflows. Recent benchmarking and field-inspection studies already address parts of this question; the remaining opportunity must therefore be defined against their specific tasks and evaluation conditions. Dataset and metric differences are substantial enough that isolated accuracy values cannot support a universal ranking.
+
+Future work should prioritize reproducible comparisons that separate clean accuracy from robustness, synthetic stress testing from real-world transfer, and frame-level detection from useful route-level reporting. For a practical road-inspection study, a carefully controlled demonstration of improved performance on unseen noise and blur, with preserved defect structure and measured deployment cost, would provide a stronger contribution than an unsupported claim of novelty based on architectural combination alone.
+
+\section*{Declarations}
+\noindent\textbf{Funding.} This work received no funding.
+
+\noindent\textbf{Competing interests.} The authors declare no conflicts of interest.
+
+\noindent\textbf{Data availability.} No new dataset was generated or analyzed experimentally in this review. The literature and dataset resources discussed are identified in the references.
+
+% Submission metadata pending author confirmation: corresponding author and email.
+% No target journal has been selected. Retain the guide credit for guide review;
+% adapt the front matter, author contributions, and AI-assistance disclosure to
+% the chosen journal after author confirmation. Do not invent author approvals.
+\begingroup
+\small
+\raggedright
+\begin{thebibliography}{99}
+\setlength{\itemsep}{6pt}
+\setlength{\parskip}{0pt}
+
+\bibitem{r1} S. H. Abdelwahed, B. K. Sharobim, B. Wasfey, and L. A. Said, ``Advancements in real-time road damage detection: a comprehensive survey of methodologies and datasets,'' Journal of Real-Time Image Processing, vol. 22, art. 137, 2025. \url{https://doi.org/10.1007/s11554-025-01683-1}
+
+\bibitem{r2} E. E.-D. Hemdan and M. E. Al-Atroush, ``A Review Study of Intelligent Road Crack Detection: Algorithms and Systems,'' International Journal of Pavement Research and Technology, vol. 19, pp. 1704--1734, 2026 (published online 7 May 2025). \url{https://doi.org/10.1007/s42947-025-00556-x}
+
+\bibitem{r3} P. Wang, L. Cheng, J. Liu, H. Wang, D. Wu, G. Ma, and W. Ma, ``YOLO-RD: Road defect detection with context-aware attention and balanced loss,'' Neurocomputing, vol. 662, art. 132000, 2026. \url{https://doi.org/10.1016/j.neucom.2025.132000}
+
+\bibitem{r4} J. Zhao, M. Jia, S. Wang, C. Jiang, D. Niu, and X. Fang, ``Robust road damage detection via multi-expert collaboration and cross-scale attention,'' Advanced Engineering Informatics, vol. 72, art. 104452, 2026. \url{https://doi.org/10.1016/j.aei.2026.104452}
+
+\bibitem{r5} M. Guo, H. Huang, F. Zeng, M. Nie, and M. Dang, ``Uncertainty-guided progressive learning for pavement crack segmentation under challenging visual degradation in smartphone-based imaging,'' Measurement, vol. 273, art. 121178, 2026. \url{https://doi.org/10.1016/j.measurement.2026.121178}
+
+\bibitem{r6} T. Duan, G. Li, H. Zhang, R. Sun, B. Zhang, Y. Xun, J. Sun, and M. Mansurova, ``NER: Noise-aware enhancement-assisted real-time detection transformer for pavement damage detection in hazy and low-light environment,'' Expert Systems with Applications, vol. 323, art. 132469, 2026. \url{https://doi.org/10.1016/j.eswa.2026.132469}
+
+\bibitem{r7} Ö. Kaya and M. Y. Çodur, ``N-RDD2024:Road damage and defects,'' Mendeley Data, version 3, 2024. Dataset. \url{https://doi.org/10.17632/27c8pwsd6v.3}
+
+\bibitem{r8} Y. Liu, J. Yao, X. Lu, R. Xie, and L. Li, ``DeepCrack: A deep hierarchical feature learning architecture for crack segmentation,'' Neurocomputing, vol. 338, pp. 139--153, 2019. \url{https://doi.org/10.1016/j.neucom.2019.01.036}
+
+\bibitem{r9} D. Arya, H. Maeda, S. K. Ghosh, D. Toshniwal, and Y. Sekimoto, ``RDD2022: A multi-national image dataset for automatic road damage detection,'' Geoscience Data Journal, vol. 11, pp. 846--862, 2024. \url{https://doi.org/10.1002/gdj3.260}
+
+\bibitem{r10} L. Li, B. Li, J. Xing, and B. Du, ``Benchmarking crack recognition for transportation infrastructure: Multi-scenario and multi-granularity analysis,'' Engineering Applications of Artificial Intelligence, vol. 181, part 4, art. 115535, 2026. \url{https://doi.org/10.1016/j.engappai.2026.115535}
+
+\bibitem{r11} X. He, J. Liu, J. Li, Z. Yang, X. Kong, Y. Zhang, Y. Lu, and Y. Yu, ``Toward intelligent pavement maintenance: A transferable deep learning framework for cross-domain crack segmentation and UAV-based field inspection,'' Advanced Engineering Informatics, vol. 73, art. 104582, 2026. \url{https://doi.org/10.1016/j.aei.2026.104582}
+
+\bibitem{r12} Y. Hu, R. Rayhana, L. Bai, and Z. Liu, ``Computational intelligence for road pavement condition assessment: a deep learning perspective,'' Urban Lifeline, vol. 4, art. 18, 2026. \url{https://doi.org/10.1007/s44285-026-00073-8}
+
+\end{thebibliography}
+\endgroup
+
+\end{document}

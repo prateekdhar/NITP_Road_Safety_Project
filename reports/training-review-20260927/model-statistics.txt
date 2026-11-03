@@ -1,0 +1,86 @@
+YOLO26s - COMPLETED TRAINING STATISTICS
+Recorded: 27 September 2026, 12:15:18 IST (06:45:18 UTC)
+Training completed: 300 / 300 epochs
+
+BEST_VALIDATION - epoch 86
+metrics/precision(B): 65.84%
+metrics/recall(B): 51.52%
+metrics/mAP50(B): 53.45%
+metrics/mAP50-95(B): 30.68%
+
+FINAL_VALIDATION - epoch 300
+metrics/precision(B): 71.74%
+metrics/recall(B): 47.17%
+metrics/mAP50(B): 50.60%
+metrics/mAP50-95(B): 28.79%
+
+INTERNAL TEST RESULTS - BEST CHECKPOINT
+Weights: ${PROJECT_ROOT}\runs\nrdd2024_yolo26s_300\weights\best.pt
+metrics/precision(B): 60.15%
+metrics/recall(B): 50.36%
+metrics/mAP50(B): 50.89%
+metrics/mAP50-95(B): 28.94%
+
+MODEL AND DATASET
+family                      : YOLO26s
+training_layers             : 260
+training_parameters         : 9955604
+training_gflops             : 22.8
+fused_evaluation_layers     : 120
+fused_evaluation_parameters : 9469050
+fused_evaluation_gflops     : 20.8
+input_size                  : 640
+optimizer                   : MuSGD
+framework                   : Ultralytics8.4.161 / torch2.11.0+cu128 / Python3.12.14
+gpu                         : RTX4060 Laptop 8188MiB
+Dataset: N-RDD2024, Mendeley 10.17632/27c8pwsd6v.3, 10 classes
+Images: 13,782 training / 3,704 validation / 1,509 internal test
+Test annotations: 4,299 boxes
+Recorded training-session time: 63.79 hours
+Sum of per-process CSV elapsed counters, splitting when time resets. Excludes interruption downtime, setup, failed partial work, and post-training evaluation. Not a measured GPU-active duration. Resume logs identify epoch2 and176 boundaries.
+Evaluation speed per image: preprocessing 0.4 ms, inference 7.4 ms, postprocessing 2.2 ms. Batched evaluation; not live-system FPS.
+
+PER-CLASS TEST RESULTS (percentages)
+D00: precision 60.69%, recall 57.92%, F1 59.27%, AP50 60.11%, AP50-95 32.43%; boxes train/val/test 16409/4632/1754
+D10: precision 57.76%, recall 59.30%, F1 58.52%, AP50 58.40%, AP50-95 28.06%; boxes train/val/test 7320/1991/796
+D20: precision 68.35%, recall 62.57%, F1 65.33%, AP50 67.82%, AP50-95 37.58%; boxes train/val/test 5750/1466/604
+D30: precision 6.64%, recall 6.25%, F1 6.44%, AP50 5.62%, AP50-95 2.50%; boxes train/val/test 294/106/16
+D40: precision 52.59%, recall 42.23%, F1 46.85%, AP50 44.09%, AP50-95 19.71%; boxes train/val/test 2859/728/296
+D50: precision 65.95%, recall 69.49%, F1 67.68%, AP50 73.25%, AP50-95 45.99%; boxes train/val/test 652/159/59
+D60: precision 55.46%, recall 58.10%, F1 56.75%, AP50 54.99%, AP50-95 31.40%; boxes train/val/test 3546/1027/420
+D70: precision 77.66%, recall 84.55%, F1 80.96%, AP50 87.37%, AP50-95 49.12%; boxes train/val/test 2717/698/296
+D80: precision 56.35%, recall 63.16%, F1 59.56%, AP50 57.22%, AP50-95 42.60%; boxes train/val/test 647/201/57
+D90: precision 100.00%, recall 0.00%, F1 0.00%, AP50 0.00%, AP50-95 0.00%; boxes train/val/test 40/3/1
+
+CLASS KEY: D00 longitudinal cracks; D10 transverse cracks; D20 alligator cracks; D30 repaired cracks; D40 potholes; D50 pedestrian crossing blurs; D60 lane line blurs; D70 manhole covers; D80 patchy road sections; D90 rutting.
+
+INTERPRETATION
+Best validation checkpoint: epoch 86. Later training reduced validation performance.
+Test is an internal holdout, not the official challenge benchmark.
+Precision, recall and F1 are confidence-curve summaries, not a fixed deployment threshold.
+D90 has only one test box. Its displayed 100% precision with zero recall/AP is a degenerate summary, not evidence of successful detection. D30 has only 16 test boxes.
+Neighboring road frames may remain correlated across splits.
+
+ORIGINAL TRAINING CONFIGURATION
+{
+  "model": "yolo26s.pt",
+  "epochs": 300,
+  "patience": 0,
+  "imgsz": 640,
+  "batch": 4,
+  "device": 0,
+  "workers": 2,
+  "amp": true,
+  "cache": false,
+  "seed": 42,
+  "deterministic": true,
+  "optimizer": "auto",
+  "close_mosaic": 10,
+  "save": true,
+  "save_period": 10,
+  "plots": true,
+  "name": "nrdd2024_yolo26s_300",
+  "exist_ok": false
+}
+
+SOURCE: ${PROJECT_ROOT}\reports\training-review-20260927\statistics.json

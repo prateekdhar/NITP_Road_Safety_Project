@@ -1,0 +1,109 @@
+{
+  "plan": {
+    "date": "2026-10-21",
+    "primary_objective": "Improve clean N-RDD2024 validation metrics, confirm locked choices on test only later",
+    "epochs_per_run": 100,
+    "runs": {
+      "control": {},
+      "lr_half": {
+        "lr0": 0.005
+      },
+      "lr_double": {
+        "lr0": 0.02
+      },
+      "wd_low": {
+        "weight_decay": 0.0001
+      },
+      "wd_high": {
+        "weight_decay": 0.001
+      },
+      "mosaic_025": {
+        "mosaic": 0.25
+      },
+      "mosaic_050": {
+        "mosaic": 0.5
+      },
+      "close_mosaic_20": {
+        "close_mosaic": 20
+      },
+      "resolution_800": {
+        "imgsz": 800
+      },
+      "noise_010": {
+        "noise_probability": 0.1
+      },
+      "noise_025": {
+        "noise_probability": 0.25
+      },
+      "p2": {
+        "p2": true
+      },
+      "fusion": {
+        "fusion": true
+      },
+      "p2_fusion": {
+        "p2": true,
+        "fusion": true
+      }
+    },
+    "new_epochs": 1400,
+    "base": {
+      "data": "${PROJECT_ROOT}\\experiments\\oct04_200\\baseline.yaml",
+      "epochs": 100,
+      "patience": 0,
+      "imgsz": 640,
+      "batch": 4,
+      "device": 0,
+      "workers": 0,
+      "amp": true,
+      "cache": false,
+      "seed": 42,
+      "deterministic": true,
+      "optimizer": "MuSGD",
+      "lr0": 0.01,
+      "momentum": 0.9,
+      "weight_decay": 0.0005,
+      "warmup_bias_lr": 0.0,
+      "mosaic": 1.0,
+      "close_mosaic": 10,
+      "save": true,
+      "save_period": 10,
+      "plots": true,
+      "exist_ok": false
+    },
+    "architecture_recipe_candidates": [
+      "control",
+      "lr_half",
+      "lr_double",
+      "wd_low",
+      "wd_high",
+      "mosaic_025",
+      "mosaic_050",
+      "close_mosaic_20"
+    ],
+    "selection": "highest recorded clean validation mAP50-95 among eligible training-only runs",
+    "no_test_access": true,
+    "seed": 42,
+    "confirmatory_multiseed_runs": "Not part of this first single-seed study; required before strong reproducibility claims",
+    "architecture": "P2 branch appends stride-4 prediction; weighted fusion is normalized branch-weighted concatenation, not full BiFPN",
+    "source_files": {
+      "ablation_components.py": "08e655ecfe9f3ce418ab52aa0253aad80a4eb0a5c2e68eab53ae26f9f117b0cf",
+      "run_yolo26_ablation.py": "98fee340b909bef3a1466b2de48dd67fc1de03eae19eacbb67844ed69733d8bd"
+    }
+  },
+  "selected_architecture_recipe": {
+    "key": "control",
+    "criterion": "highest clean validation mAP50-95; ties use prespecified order",
+    "candidates": {
+      "control": 0.3117,
+      "lr_half": 0.30493,
+      "lr_double": 0.30847,
+      "wd_low": 0.30756,
+      "wd_high": 0.30756,
+      "mosaic_025": 0.29314,
+      "mosaic_050": 0.2993,
+      "close_mosaic_20": 0.3117
+    },
+    "overrides": {}
+  }
+}

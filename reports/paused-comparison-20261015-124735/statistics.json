@@ -1,0 +1,1549 @@
+{
+  "recorded_at": "2026-10-15T12:47:35.761371+05:30",
+  "queue": {
+    "interrupted_log": "C:\\Users\\prate\\OneDrive\\Desktop\\RoadDamageDetection\\experiments\\detector_comparison_20261014\\logs\\yolov8s_stress_validation.log",
+    "paused_at": "2026-10-15T12:45:32.3676180+05:30",
+    "state": "paused",
+    "epochs_completed": 300,
+    "total_epochs": 600,
+    "note": "User requested pause. Three models finished100epochs and clean validation. Resume unfinished YOLOv8s stress evaluation before advancing queue; current launcher skips completed models including their stress evaluation. No retraining needed.",
+    "interrupted_phase": "stress_validation",
+    "current": "yolov8s"
+  },
+  "clean_validation_percentages": [
+    {
+      "model": "YOLO26s original",
+      "epochs": 300,
+      "precision": 65.836,
+      "recall": 51.518,
+      "mAP50": 53.446000000000005,
+      "mAP50_95": 30.678,
+      "source": "C:\\Users\\prate\\OneDrive\\Desktop\\RoadDamageDetection\\reports\\training-review-20260927\\statistics.json"
+    },
+    {
+      "model": "YOLOv9s baseline",
+      "epochs": 100,
+      "precision": 66.03247802318089,
+      "recall": 50.2130337018491,
+      "mAP50": 52.56575928522794,
+      "mAP50_95": 30.456752957030698,
+      "source": "C:\\Users\\prate\\OneDrive\\Desktop\\RoadDamageDetection\\experiments\\oct04_200\\yolov9s_baseline_complete.json"
+    },
+    {
+      "model": "YOLOv9s noise-augmented",
+      "epochs": 100,
+      "precision": 65.90513276428604,
+      "recall": 50.546447159089844,
+      "mAP50": 53.12917043702462,
+      "mAP50_95": 30.91454458613667,
+      "source": "C:\\Users\\prate\\OneDrive\\Desktop\\RoadDamageDetection\\experiments\\paper_noise_20261010\\evaluation_20261012_130732\\comparison.json"
+    },
+    {
+      "model": "YOLOv9s broader augmentation",
+      "epochs": 30,
+      "precision": 64.82604331438174,
+      "recall": 48.29365762998504,
+      "mAP50": 50.42173019751821,
+      "mAP50_95": 28.900155307745734,
+      "source": "C:\\Users\\prate\\OneDrive\\Desktop\\RoadDamageDetection\\experiments\\paper_noise_20261010\\evaluation_20261012_130732\\comparison.json"
+    },
+    {
+      "model": "YOLOv9s teacher guidance",
+      "epochs": 30,
+      "precision": 65.02225672886088,
+      "recall": 49.04386782270862,
+      "mAP50": 50.46249555303808,
+      "mAP50_95": 28.68755209036212,
+      "source": "C:\\Users\\prate\\OneDrive\\Desktop\\RoadDamageDetection\\experiments\\paper_noise_20261010\\evaluation_20261012_130732\\comparison.json"
+    },
+    {
+      "model": "YOLOv9s proposed modification",
+      "epochs": 30,
+      "precision": 64.1268820444471,
+      "recall": 48.271368165987546,
+      "mAP50": 50.137211681927,
+      "mAP50_95": 28.539113816217665,
+      "source": "C:\\Users\\prate\\OneDrive\\Desktop\\RoadDamageDetection\\experiments\\paper_noise_20261010\\evaluation_20261012_130732\\comparison.json"
+    },
+    {
+      "model": "yolov5su",
+      "epochs": 100,
+      "precision": 65.44922656901966,
+      "recall": 46.83273196980101,
+      "mAP50": 50.648169764615304,
+      "mAP50_95": 29.044266297559133,
+      "source": "C:\\Users\\prate\\OneDrive\\Desktop\\RoadDamageDetection\\experiments\\detector_comparison_20261014\\status\\yolov5su.json"
+    },
+    {
+      "model": "yolov6s_scratch",
+      "epochs": 100,
+      "precision": 67.99826892750987,
+      "recall": 44.67534742427688,
+      "mAP50": 48.2142615624576,
+      "mAP50_95": 27.649569250944943,
+      "source": "C:\\Users\\prate\\OneDrive\\Desktop\\RoadDamageDetection\\experiments\\detector_comparison_20261014\\status\\yolov6s_scratch.json"
+    },
+    {
+      "model": "yolov8s",
+      "epochs": 100,
+      "precision": 68.08939839011381,
+      "recall": 46.96997234322156,
+      "mAP50": 50.962881855015915,
+      "mAP50_95": 29.319249275134474,
+      "source": "C:\\Users\\prate\\OneDrive\\Desktop\\RoadDamageDetection\\experiments\\detector_comparison_20261014\\status\\yolov8s.json"
+    }
+  ],
+  "current_models": {
+    "yolov5su": {
+      "source": "yolov5su.pt",
+      "pretrained": true,
+      "started_at": "2026-10-14T06:59:49.247221+00:00",
+      "smoke_only": false,
+      "resumed_from_epoch": 3,
+      "resume_checkpoint": "C:\\Users\\prate\\OneDrive\\Desktop\\RoadDamageDetection\\experiments\\detector_comparison_20261014\\speed_adjustment_20261014_122808\\resume.pt",
+      "resume_sha256": "0fe54cada8b7eb40f3f004946860f59e0eefcd092f85ea9cc3ca52eccfba8451",
+      "loader_note": "4 training workers, 0 validation workers; resume may change RNG trajectory",
+      "source_sha256": "054272ddbbb3035cea7ff6b97e5becea63d2cc57a4f06a2a8133f4d1a56e74ed",
+      "parameters": 9126062,
+      "gflops_640": 24.0599552,
+      "optimizer": "MuSGD",
+      "state": "complete",
+      "epochs_completed": 100,
+      "finished_at": "2026-10-14T14:04:11.274279+00:00",
+      "best": "C:\\Users\\prate\\OneDrive\\Desktop\\RoadDamageDetection\\experiments\\detector_comparison_20261014\\runs\\yolov5su\\weights\\best.pt",
+      "sha256": "10d9560e82db949c43baa2ab8702713ff8b0e212b6f61729483881661f5e5437",
+      "best_validation_epoch": {
+        "epoch": "71",
+        "time": "17815",
+        "train/box_loss": "1.54252",
+        "train/cls_loss": "1.47126",
+        "train/dfl_loss": "1.38929",
+        "metrics/precision(B)": "0.65479",
+        "metrics/recall(B)": "0.46841",
+        "metrics/mAP50(B)": "0.50647",
+        "metrics/mAP50-95(B)": "0.29047",
+        "val/box_loss": "1.59868",
+        "val/cls_loss": "1.45683",
+        "val/dfl_loss": "1.43738",
+        "lr/pg0": "0.00921",
+        "lr/pg1": "0.00307",
+        "lr/pg2": "0.00921",
+        "lr/pg3": "0.00307",
+        "lr/pg4": "0.00921",
+        "lr/pg5": "0.00307",
+        "lr/pg6": "0.00921",
+        "lr/pg7": "0.00307"
+      },
+      "latest_validation_epoch": {
+        "epoch": "100",
+        "time": "25405",
+        "train/box_loss": "1.38311",
+        "train/cls_loss": "1.11884",
+        "train/dfl_loss": "1.30221",
+        "metrics/precision(B)": "0.66009",
+        "metrics/recall(B)": "0.47193",
+        "metrics/mAP50(B)": "0.50711",
+        "metrics/mAP50-95(B)": "0.28958",
+        "val/box_loss": "1.61399",
+        "val/cls_loss": "1.43492",
+        "val/dfl_loss": "1.44423",
+        "lr/pg0": "0.000597",
+        "lr/pg1": "0.000199",
+        "lr/pg2": "0.000597",
+        "lr/pg3": "0.000199",
+        "lr/pg4": "0.000597",
+        "lr/pg5": "0.000199",
+        "lr/pg6": "0.000597",
+        "lr/pg7": "0.000199"
+      },
+      "run": "C:\\Users\\prate\\OneDrive\\Desktop\\RoadDamageDetection\\experiments\\detector_comparison_20261014\\runs\\yolov5su",
+      "validation": {
+        "metrics": {
+          "metrics/precision(B)": 0.6544922656901966,
+          "metrics/recall(B)": 0.4683273196980101,
+          "metrics/mAP50(B)": 0.506481697646153,
+          "metrics/mAP50-95(B)": 0.29044266297559135,
+          "fitness": 0.29044266297559135
+        },
+        "speed": {
+          "preprocess": 0.24654357450156253,
+          "inference": 4.337943655517892,
+          "loss": 0.001557802416219026,
+          "postprocess": 0.841089227890402
+        },
+        "per_class": [
+          {
+            "class_id": 0,
+            "precision": 0.6555084209083543,
+            "recall": 0.522020725388601,
+            "ap50": 0.5740903914797773,
+            "ap50_95": 0.31971763018378574
+          },
+          {
+            "class_id": 1,
+            "precision": 0.5862510298131395,
+            "recall": 0.515318935208438,
+            "ap50": 0.547524070257049,
+            "ap50_95": 0.2675766560905588
+          },
+          {
+            "class_id": 2,
+            "precision": 0.6699491779617088,
+            "recall": 0.5787665886611619,
+            "ap50": 0.6284276099049569,
+            "ap50_95": 0.34283812841685624
+          },
+          {
+            "class_id": 3,
+            "precision": 0.47937603930329503,
+            "recall": 0.18867924528301888,
+            "ap50": 0.2777111309477146,
+            "ap50_95": 0.15834485921203914
+          },
+          {
+            "class_id": 4,
+            "precision": 0.6350637870973773,
+            "recall": 0.45604395604395603,
+            "ap50": 0.5058757164025727,
+            "ap50_95": 0.2282879789720073
+          },
+          {
+            "class_id": 5,
+            "precision": 0.6316444780874123,
+            "recall": 0.610062893081761,
+            "ap50": 0.6190912794927885,
+            "ap50_95": 0.38848940564809054
+          },
+          {
+            "class_id": 6,
+            "precision": 0.539992270194217,
+            "recall": 0.47030185004868547,
+            "ap50": 0.47376513949335936,
+            "ap50_95": 0.27044772066060085
+          },
+          {
+            "class_id": 7,
+            "precision": 0.7794150815363377,
+            "recall": 0.7550143266475645,
+            "ap50": 0.7998734759411271,
+            "ap50_95": 0.44940754973406705
+          },
+          {
+            "class_id": 8,
+            "precision": 0.5677223720001248,
+            "recall": 0.5870646766169154,
+            "ap50": 0.6049581625421846,
+            "ap50_95": 0.4659167008379076
+          },
+          {
+            "class_id": 9,
+            "precision": 1.0,
+            "recall": 0.0,
+            "ap50": 0.0335,
+            "ap50_95": 0.0134
+          }
+        ]
+      }
+    },
+    "yolov6s_scratch": {
+      "source": "yolov6s.yaml",
+      "pretrained": false,
+      "started_at": "2026-10-14T14:09:21.782051+00:00",
+      "smoke_only": false,
+      "parameters": 16307790,
+      "gflops_640": 43.9053824,
+      "optimizer": "MuSGD",
+      "state": "complete",
+      "epochs_completed": 100,
+      "finished_at": "2026-10-14T22:27:10.213108+00:00",
+      "best": "C:\\Users\\prate\\OneDrive\\Desktop\\RoadDamageDetection\\experiments\\detector_comparison_20261014\\runs\\yolov6s_scratch\\weights\\best.pt",
+      "sha256": "7698a6617ec706385519cd6367cd5f05d1acebdd9b750408ea1bd88430184c12",
+      "best_validation_epoch": {
+        "epoch": "100",
+        "time": "29781.2",
+        "train/box_loss": "1.4203",
+        "train/cls_loss": "1.24754",
+        "train/dfl_loss": "1.4747",
+        "metrics/precision(B)": "0.68133",
+        "metrics/recall(B)": "0.44662",
+        "metrics/mAP50(B)": "0.48228",
+        "metrics/mAP50-95(B)": "0.27655",
+        "val/box_loss": "1.6102",
+        "val/cls_loss": "1.48469",
+        "val/dfl_loss": "1.63684",
+        "lr/pg0": "0.000597",
+        "lr/pg1": "0.000199",
+        "lr/pg2": "0.000597",
+        "lr/pg3": "0.000199",
+        "lr/pg4": "0.000597",
+        "lr/pg5": "0.000199",
+        "lr/pg6": "0.000597",
+        "lr/pg7": "0.000199"
+      },
+      "latest_validation_epoch": {
+        "epoch": "100",
+        "time": "29781.2",
+        "train/box_loss": "1.4203",
+        "train/cls_loss": "1.24754",
+        "train/dfl_loss": "1.4747",
+        "metrics/precision(B)": "0.68133",
+        "metrics/recall(B)": "0.44662",
+        "metrics/mAP50(B)": "0.48228",
+        "metrics/mAP50-95(B)": "0.27655",
+        "val/box_loss": "1.6102",
+        "val/cls_loss": "1.48469",
+        "val/dfl_loss": "1.63684",
+        "lr/pg0": "0.000597",
+        "lr/pg1": "0.000199",
+        "lr/pg2": "0.000597",
+        "lr/pg3": "0.000199",
+        "lr/pg4": "0.000597",
+        "lr/pg5": "0.000199",
+        "lr/pg6": "0.000597",
+        "lr/pg7": "0.000199"
+      },
+      "run": "C:\\Users\\prate\\OneDrive\\Desktop\\RoadDamageDetection\\experiments\\detector_comparison_20261014\\runs\\yolov6s_scratch",
+      "validation": {
+        "metrics": {
+          "metrics/precision(B)": 0.6799826892750986,
+          "metrics/recall(B)": 0.4467534742427688,
+          "metrics/mAP50(B)": 0.482142615624576,
+          "metrics/mAP50-95(B)": 0.27649569250944944,
+          "fitness": 0.27649569250944944
+        },
+        "speed": {
+          "preprocess": 0.2737880670127032,
+          "inference": 5.454724190127647,
+          "loss": 0.0022554265203009226,
+          "postprocess": 1.127091630642138
+        },
+        "per_class": [
+          {
+            "class_id": 0,
+            "precision": 0.6443345652096172,
+            "recall": 0.520293609671848,
+            "ap50": 0.5595350496199483,
+            "ap50_95": 0.31277908030366675
+          },
+          {
+            "class_id": 1,
+            "precision": 0.6045170030258535,
+            "recall": 0.521848317428428,
+            "ap50": 0.5525273925003005,
+            "ap50_95": 0.2686012379352382
+          },
+          {
+            "class_id": 2,
+            "precision": 0.6404720139282036,
+            "recall": 0.5886766712141883,
+            "ap50": 0.6341051673141312,
+            "ap50_95": 0.35146056828274685
+          },
+          {
+            "class_id": 3,
+            "precision": 0.8364674008441328,
+            "recall": 0.08490566037735849,
+            "ap50": 0.20775936070840317,
+            "ap50_95": 0.12483058860793501
+          },
+          {
+            "class_id": 4,
+            "precision": 0.605648812376068,
+            "recall": 0.41770700839321395,
+            "ap50": 0.45837149997397497,
+            "ap50_95": 0.20914729063925255
+          },
+          {
+            "class_id": 5,
+            "precision": 0.6114945463759559,
+            "recall": 0.6289308176100629,
+            "ap50": 0.6155232490862879,
+            "ap50_95": 0.3920753448036703
+          },
+          {
+            "class_id": 6,
+            "precision": 0.5210530870151272,
+            "recall": 0.4605647517039922,
+            "ap50": 0.4471352085898276,
+            "ap50_95": 0.24712108462407706
+          },
+          {
+            "class_id": 7,
+            "precision": 0.7278684316564238,
+            "recall": 0.7421203438395415,
+            "ap50": 0.7705804396444889,
+            "ap50_95": 0.42260370738547104
+          },
+          {
+            "class_id": 8,
+            "precision": 0.6079710323196043,
+            "recall": 0.5024875621890548,
+            "ap50": 0.575888788808397,
+            "ap50_95": 0.4363380225124365
+          },
+          {
+            "class_id": 9,
+            "precision": 1.0,
+            "recall": 0.0,
+            "ap50": 0.0,
+            "ap50_95": 0.0
+          }
+        ]
+      }
+    },
+    "yolov8s": {
+      "source": "yolov8s.pt",
+      "pretrained": true,
+      "started_at": "2026-10-14T22:34:23.172661+00:00",
+      "smoke_only": false,
+      "source_sha256": "1f47a78bf100391c2a140b7ac73a1caae18c32779be7d310658112f7ac9aa78a",
+      "parameters": 11139470,
+      "gflops_640": 28.6614016,
+      "optimizer": "MuSGD",
+      "state": "complete",
+      "epochs_completed": 100,
+      "finished_at": "2026-10-15T07:13:02.598652+00:00",
+      "best": "C:\\Users\\prate\\OneDrive\\Desktop\\RoadDamageDetection\\experiments\\detector_comparison_20261014\\runs\\yolov8s\\weights\\best.pt",
+      "sha256": "4aef1d224c4025c529e348fbe2c9d6f379af457a85d8686ecba9e122dd7c7840",
+      "best_validation_epoch": {
+        "epoch": "80",
+        "time": "25080.5",
+        "train/box_loss": "1.43061",
+        "train/cls_loss": "1.27492",
+        "train/dfl_loss": "1.32828",
+        "metrics/precision(B)": "0.68089",
+        "metrics/recall(B)": "0.46887",
+        "metrics/mAP50(B)": "0.50949",
+        "metrics/mAP50-95(B)": "0.29323",
+        "val/box_loss": "1.61047",
+        "val/cls_loss": "1.41151",
+        "val/dfl_loss": "1.47479",
+        "lr/pg0": "0.006537",
+        "lr/pg1": "0.002179",
+        "lr/pg2": "0.006537",
+        "lr/pg3": "0.002179",
+        "lr/pg4": "0.006537",
+        "lr/pg5": "0.002179",
+        "lr/pg6": "0.006537",
+        "lr/pg7": "0.002179"
+      },
+      "latest_validation_epoch": {
+        "epoch": "100",
+        "time": "31043.3",
+        "train/box_loss": "1.30023",
+        "train/cls_loss": "0.98726",
+        "train/dfl_loss": "1.26969",
+        "metrics/precision(B)": "0.65433",
+        "metrics/recall(B)": "0.49236",
+        "metrics/mAP50(B)": "0.50937",
+        "metrics/mAP50-95(B)": "0.2906",
+        "val/box_loss": "1.62843",
+        "val/cls_loss": "1.40696",
+        "val/dfl_loss": "1.48813",
+        "lr/pg0": "0.000597",
+        "lr/pg1": "0.000199",
+        "lr/pg2": "0.000597",
+        "lr/pg3": "0.000199",
+        "lr/pg4": "0.000597",
+        "lr/pg5": "0.000199",
+        "lr/pg6": "0.000597",
+        "lr/pg7": "0.000199"
+      },
+      "run": "C:\\Users\\prate\\OneDrive\\Desktop\\RoadDamageDetection\\experiments\\detector_comparison_20261014\\runs\\yolov8s",
+      "validation": {
+        "metrics": {
+          "metrics/precision(B)": 0.6808939839011381,
+          "metrics/recall(B)": 0.46969972343221567,
+          "metrics/mAP50(B)": 0.5096288185501592,
+          "metrics/mAP50-95(B)": 0.29319249275134474,
+          "fitness": 0.29319249275134474
+        },
+        "speed": {
+          "preprocess": 0.25711833159240627,
+          "inference": 5.067841441733842,
+          "loss": 0.001763336892369491,
+          "postprocess": 0.931702672762743
+        },
+        "per_class": [
+          {
+            "class_id": 0,
+            "precision": 0.6812509998903801,
+            "recall": 0.504785766365063,
+            "ap50": 0.5796963218804001,
+            "ap50_95": 0.3272171759800627
+          },
+          {
+            "class_id": 1,
+            "precision": 0.633370284066009,
+            "recall": 0.5119302855818606,
+            "ap50": 0.5594894983962275,
+            "ap50_95": 0.27036923763166615
+          },
+          {
+            "class_id": 2,
+            "precision": 0.6981234765456443,
+            "recall": 0.5798090040927695,
+            "ap50": 0.6281798570891921,
+            "ap50_95": 0.3379578987803561
+          },
+          {
+            "class_id": 3,
+            "precision": 0.5259101861561233,
+            "recall": 0.2830188679245283,
+            "ap50": 0.30498568170120893,
+            "ap50_95": 0.17017913227326922
+          },
+          {
+            "class_id": 4,
+            "precision": 0.6616547971223625,
+            "recall": 0.42442134041037327,
+            "ap50": 0.500747879694446,
+            "ap50_95": 0.22951394644575088
+          },
+          {
+            "class_id": 5,
+            "precision": 0.6064539692766379,
+            "recall": 0.5974842767295597,
+            "ap50": 0.6101866721806155,
+            "ap50_95": 0.3996016430175961
+          },
+          {
+            "class_id": 6,
+            "precision": 0.5696858319795707,
+            "recall": 0.45633401946641644,
+            "ap50": 0.4691883508915897,
+            "ap50_95": 0.264805615136064
+          },
+          {
+            "class_id": 7,
+            "precision": 0.7961918451694783,
+            "recall": 0.7521489971346705,
+            "ap50": 0.807639108145758,
+            "ap50_95": 0.44983346177940897
+          },
+          {
+            "class_id": 8,
+            "precision": 0.6362984488051753,
+            "recall": 0.5870646766169154,
+            "ap50": 0.636174815522154,
+            "ap50_95": 0.4824468164692733
+          },
+          {
+            "class_id": 9,
+            "precision": 1.0,
+            "recall": 0.0,
+            "ap50": 0.0,
+            "ap50_95": 0.0
+          }
+        ]
+      }
+    }
+  },
+  "stress_validation": {
+    "yolov5su": {
+      "source": "C:\\Users\\prate\\OneDrive\\Desktop\\RoadDamageDetection\\experiments\\paper_noise_20261010\\evaluation_20261014_193458\\comparison.json",
+      "evaluation_complete": true,
+      "results": {
+        "weights": "C:\\Users\\prate\\OneDrive\\Desktop\\RoadDamageDetection\\experiments\\detector_comparison_20261014\\runs\\yolov5su\\weights\\best.pt",
+        "sha256": "10d9560e82db949c43baa2ab8702713ff8b0e212b6f61729483881661f5e5437",
+        "conditions": {
+          "clean": {
+            "metrics": {
+              "metrics/precision(B)": 0.6545685150385375,
+              "metrics/recall(B)": 0.46834361033981153,
+              "metrics/mAP50(B)": 0.5064581201428375,
+              "metrics/mAP50-95(B)": 0.2904481691831335,
+              "fitness": 0.2904481691831335
+            },
+            "speed": {
+              "preprocess": 0.3374676026135369,
+              "inference": 4.311902240824447,
+              "loss": 0.002785853161044081,
+              "postprocess": 0.9824738660719788
+            },
+            "per_class": [
+              {
+                "class_id": 0,
+                "precision": 0.655758383928425,
+                "recall": 0.5222947491213352,
+                "ap50": 0.5740699399354195,
+                "ap50_95": 0.31973804046654425
+              },
+              {
+                "class_id": 1,
+                "precision": 0.5865894345423118,
+                "recall": 0.515252051891431,
+                "ap50": 0.5475303002235972,
+                "ap50_95": 0.2677350604136658
+              },
+              {
+                "class_id": 2,
+                "precision": 0.669932279151723,
+                "recall": 0.5787223546634482,
+                "ap50": 0.6284001695084871,
+                "ap50_95": 0.3428600742877395
+              },
+              {
+                "class_id": 3,
+                "precision": 0.47928814112299784,
+                "recall": 0.18867924528301888,
+                "ap50": 0.2777299850306243,
+                "ap50_95": 0.1583719131147971
+              },
+              {
+                "class_id": 4,
+                "precision": 0.6349895381970497,
+                "recall": 0.45604395604395603,
+                "ap50": 0.5058157523747336,
+                "ap50_95": 0.22827805820935088
+              },
+              {
+                "class_id": 5,
+                "precision": 0.6315808646273906,
+                "recall": 0.610062893081761,
+                "ap50": 0.6190949843138875,
+                "ap50_95": 0.3884900993636559
+              },
+              {
+                "class_id": 6,
+                "precision": 0.5399553595932036,
+                "recall": 0.47030185004868547,
+                "ap50": 0.4738231780904938,
+                "ap50_95": 0.27039747991912766
+              },
+              {
+                "class_id": 7,
+                "precision": 0.7794551181161001,
+                "recall": 0.7550143266475645,
+                "ap50": 0.7999028430753015,
+                "ap50_95": 0.4494083435359804
+              },
+              {
+                "class_id": 8,
+                "precision": 0.5681360311061736,
+                "recall": 0.5870646766169154,
+                "ap50": 0.6047140488758316,
+                "ap50_95": 0.465802622520473
+              },
+              {
+                "class_id": 9,
+                "precision": 1.0,
+                "recall": 0.0,
+                "ap50": 0.0335,
+                "ap50_95": 0.0134
+              }
+            ]
+          },
+          "sensor_noise": {
+            "metrics": {
+              "metrics/precision(B)": 0.42105048520814237,
+              "metrics/recall(B)": 0.19396597280658212,
+              "metrics/mAP50(B)": 0.1641374916073853,
+              "metrics/mAP50-95(B)": 0.08449184274720212,
+              "fitness": 0.08449184274720212
+            },
+            "speed": {
+              "preprocess": 0.5157927645552153,
+              "inference": 4.439586932970973,
+              "loss": 0.0028535636744024956,
+              "postprocess": 1.0226378239811695
+            },
+            "per_class": [
+              {
+                "class_id": 0,
+                "precision": 0.30600121263701924,
+                "recall": 0.17206390328151985,
+                "ap50": 0.12176820762403014,
+                "ap50_95": 0.04903207182574052
+              },
+              {
+                "class_id": 1,
+                "precision": 0.2169819501094437,
+                "recall": 0.21295831240582622,
+                "ap50": 0.12436516020048503,
+                "ap50_95": 0.04549046640692596
+              },
+              {
+                "class_id": 2,
+                "precision": 0.3116316840761472,
+                "recall": 0.1446111869031378,
+                "ap50": 0.09908352668463127,
+                "ap50_95": 0.035849134617116155
+              },
+              {
+                "class_id": 3,
+                "precision": 0.5537269581290944,
+                "recall": 0.03773584905660377,
+                "ap50": 0.07232501314806611,
+                "ap50_95": 0.02922552948222045
+              },
+              {
+                "class_id": 4,
+                "precision": 0.10546905792899812,
+                "recall": 0.1662087912087912,
+                "ap50": 0.061456299477061625,
+                "ap50_95": 0.03127088101094773
+              },
+              {
+                "class_id": 5,
+                "precision": 0.5178945358389764,
+                "recall": 0.4121402580158058,
+                "ap50": 0.4111784849483978,
+                "ap50_95": 0.2308808596024075
+              },
+              {
+                "class_id": 6,
+                "precision": 0.39751602385613555,
+                "recall": 0.2035053554040896,
+                "ap50": 0.18039515696306552,
+                "ap50_95": 0.1005856402307443
+              },
+              {
+                "class_id": 7,
+                "precision": 0.47881970402827606,
+                "recall": 0.43123209169054444,
+                "ap50": 0.4354921367762242,
+                "ap50_95": 0.24010239748122952
+              },
+              {
+                "class_id": 8,
+                "precision": 0.32246372547733215,
+                "recall": 0.15920398009950248,
+                "ap50": 0.13531093025189148,
+                "ap50_95": 0.08248144681468894
+              },
+              {
+                "class_id": 9,
+                "precision": 1.0,
+                "recall": 0.0,
+                "ap50": 0.0,
+                "ap50_95": 0.0
+              }
+            ]
+          },
+          "motion_diagonal": {
+            "metrics": {
+              "metrics/precision(B)": 0.3793165243296633,
+              "metrics/recall(B)": 0.1308341152144969,
+              "metrics/mAP50(B)": 0.11420159471051028,
+              "metrics/mAP50-95(B)": 0.050443504219143606,
+              "fitness": 0.050443504219143606
+            },
+            "speed": {
+              "preprocess": 0.8346824243974607,
+              "inference": 4.468856641455849,
+              "loss": 0.0027422786039670126,
+              "postprocess": 0.9753465982952231
+            },
+            "per_class": [
+              {
+                "class_id": 0,
+                "precision": 0.19305877345738157,
+                "recall": 0.1192622745423788,
+                "ap50": 0.06815740823351071,
+                "ap50_95": 0.027106312927520183
+              },
+              {
+                "class_id": 1,
+                "precision": 0.3613731196264128,
+                "recall": 0.02870548911316142,
+                "ap50": 0.0317327524178964,
+                "ap50_95": 0.012215899069156239
+              },
+              {
+                "class_id": 2,
+                "precision": 0.36586544539006344,
+                "recall": 0.08867667121418826,
+                "ap50": 0.08833937090734553,
+                "ap50_95": 0.0343754752894555
+              },
+              {
+                "class_id": 3,
+                "precision": 0.21918708424005157,
+                "recall": 0.03773584905660377,
+                "ap50": 0.035152600608312656,
+                "ap50_95": 0.015953377490431
+              },
+              {
+                "class_id": 4,
+                "precision": 0.23550765655314262,
+                "recall": 0.05631868131868132,
+                "ap50": 0.04861762974338328,
+                "ap50_95": 0.013270940609012048
+              },
+              {
+                "class_id": 5,
+                "precision": 0.38527484112445826,
+                "recall": 0.41509433962264153,
+                "ap50": 0.37095968846929356,
+                "ap50_95": 0.19622453561705874
+              },
+              {
+                "class_id": 6,
+                "precision": 0.2994324656533986,
+                "recall": 0.2385589094449854,
+                "ap50": 0.1832025046599098,
+                "ap50_95": 0.0862518815503946
+              },
+              {
+                "class_id": 7,
+                "precision": 0.5677740054110214,
+                "recall": 0.2593123209169054,
+                "ap50": 0.25850571149590024,
+                "ap50_95": 0.09190976383089589
+              },
+              {
+                "class_id": 8,
+                "precision": 0.16569185184070287,
+                "recall": 0.06467661691542288,
+                "ap50": 0.04829422651549668,
+                "ap50_95": 0.021694423375079534
+              },
+              {
+                "class_id": 9,
+                "precision": 1.0,
+                "recall": 0.0,
+                "ap50": 0.009054054054054055,
+                "ap50_95": 0.005432432432432433
+              }
+            ]
+          },
+          "defocus": {
+            "metrics": {
+              "metrics/precision(B)": 0.44393209173943565,
+              "metrics/recall(B)": 0.22947353624110742,
+              "metrics/mAP50(B)": 0.20199835886766926,
+              "metrics/mAP50-95(B)": 0.09818587355129928,
+              "fitness": 0.09818587355129928
+            },
+            "speed": {
+              "preprocess": 0.9669974621453978,
+              "inference": 4.475565523697938,
+              "loss": 0.00260693849281337,
+              "postprocess": 0.9180377429101596
+            },
+            "per_class": [
+              {
+                "class_id": 0,
+                "precision": 0.3501664660201398,
+                "recall": 0.163860103626943,
+                "ap50": 0.1363616994318754,
+                "ap50_95": 0.0578219387563635
+              },
+              {
+                "class_id": 1,
+                "precision": 0.28723986433801263,
+                "recall": 0.13008538422903063,
+                "ap50": 0.1068399093093972,
+                "ap50_95": 0.04226106506399996
+              },
+              {
+                "class_id": 2,
+                "precision": 0.4394309951258222,
+                "recall": 0.17803547066848568,
+                "ap50": 0.18913389663003344,
+                "ap50_95": 0.07861625415919377
+              },
+              {
+                "class_id": 3,
+                "precision": 0.34640632606667715,
+                "recall": 0.11320754716981132,
+                "ap50": 0.13287412523218792,
+                "ap50_95": 0.053917800920304446
+              },
+              {
+                "class_id": 4,
+                "precision": 0.36200552700700217,
+                "recall": 0.137957080870904,
+                "ap50": 0.13281689834783375,
+                "ap50_95": 0.05234608839243565
+              },
+              {
+                "class_id": 5,
+                "precision": 0.4081982527549268,
+                "recall": 0.5379296669412528,
+                "ap50": 0.4768152741105015,
+                "ap50_95": 0.26040562604653744
+              },
+              {
+                "class_id": 6,
+                "precision": 0.28431703609244496,
+                "recall": 0.41285296981499514,
+                "ap50": 0.2882510921490705,
+                "ap50_95": 0.14051375890383058
+              },
+              {
+                "class_id": 7,
+                "precision": 0.22603824187295035,
+                "recall": 0.4068767908309456,
+                "ap50": 0.2674283214070056,
+                "ap50_95": 0.13442889411670914
+              },
+              {
+                "class_id": 8,
+                "precision": 0.7355182081163799,
+                "recall": 0.21393034825870647,
+                "ap50": 0.2821797633631355,
+                "ap50_95": 0.15644948306666198
+              },
+              {
+                "class_id": 9,
+                "precision": 1.0,
+                "recall": 0.0,
+                "ap50": 0.007282608695652174,
+                "ap50_95": 0.0050978260869565225
+              }
+            ]
+          },
+          "mixed_diagonal": {
+            "metrics": {
+              "metrics/precision(B)": 0.2424266937931384,
+              "metrics/recall(B)": 0.013993376405534774,
+              "metrics/mAP50(B)": 0.005686078228741924,
+              "metrics/mAP50-95(B)": 0.0031534134239807445,
+              "fitness": 0.0031534134239807445
+            },
+            "speed": {
+              "preprocess": 1.002670869395098,
+              "inference": 4.4652988930736734,
+              "loss": 0.0028771868799645885,
+              "postprocess": 0.9823983261332111
+            },
+            "per_class": [
+              {
+                "class_id": 0,
+                "precision": 0.03209463015967466,
+                "recall": 0.03044041450777202,
+                "ap50": 0.008853214050427778,
+                "ap50_95": 0.005540501288799304
+              },
+              {
+                "class_id": 1,
+                "precision": 0.013198689090252284,
+                "recall": 0.0045203415369161224,
+                "ap50": 0.00047892544412297716,
+                "ap50_95": 0.00016880682786880077
+              },
+              {
+                "class_id": 2,
+                "precision": 0.03001763152110658,
+                "recall": 0.0006821282401091405,
+                "ap50": 0.0016666666666666666,
+                "ap50_95": 0.00025025641025641025
+              },
+              {
+                "class_id": 3,
+                "precision": 0.0,
+                "recall": 0.0,
+                "ap50": 0.0,
+                "ap50_95": 0.0
+              },
+              {
+                "class_id": 4,
+                "precision": 0.001965036335145266,
+                "recall": 0.019230769230769232,
+                "ap50": 0.0010970073365058253,
+                "ap50_95": 0.00032452790473253636
+              },
+              {
+                "class_id": 5,
+                "precision": 1.0,
+                "recall": 0.0,
+                "ap50": 0.005,
+                "ap50_95": 0.004
+              },
+              {
+                "class_id": 6,
+                "precision": 0.16928814753191196,
+                "recall": 0.07789678675754626,
+                "ap50": 0.03299060687147644,
+                "ap50_95": 0.01718153393196397
+              },
+              {
+                "class_id": 7,
+                "precision": 0.17770280329329313,
+                "recall": 0.0071633237822349575,
+                "ap50": 0.006744776119402986,
+                "ap50_95": 0.004047797817014825
+              },
+              {
+                "class_id": 8,
+                "precision": 0.0,
+                "recall": 0.0,
+                "ap50": 2.9585798816568047e-05,
+                "ap50_95": 2.0710059171597635e-05
+              },
+              {
+                "class_id": 9,
+                "precision": 1.0,
+                "recall": 0.0,
+                "ap50": 0.0,
+                "ap50_95": 0.0
+              }
+            ]
+          }
+        }
+      }
+    },
+    "yolov6s_scratch": {
+      "source": "C:\\Users\\prate\\OneDrive\\Desktop\\RoadDamageDetection\\experiments\\paper_noise_20261010\\evaluation_20261015_035819\\comparison.json",
+      "evaluation_complete": true,
+      "results": {
+        "weights": "C:\\Users\\prate\\OneDrive\\Desktop\\RoadDamageDetection\\experiments\\detector_comparison_20261014\\runs\\yolov6s_scratch\\weights\\best.pt",
+        "sha256": "7698a6617ec706385519cd6367cd5f05d1acebdd9b750408ea1bd88430184c12",
+        "conditions": {
+          "clean": {
+            "metrics": {
+              "metrics/precision(B)": 0.6799145845721993,
+              "metrics/recall(B)": 0.44678520399546234,
+              "metrics/mAP50(B)": 0.48214538275319685,
+              "metrics/mAP50-95(B)": 0.2765107163338628,
+              "fitness": 0.2765107163338628
+            },
+            "speed": {
+              "preprocess": 0.3529857722104509,
+              "inference": 6.125735502069059,
+              "loss": 0.004241873655889634,
+              "postprocess": 1.2933220031600698
+            },
+            "per_class": [
+              {
+                "class_id": 0,
+                "precision": 0.6443578127411628,
+                "recall": 0.520293609671848,
+                "ap50": 0.5595979735056562,
+                "ap50_95": 0.3128088645648921
+              },
+              {
+                "class_id": 1,
+                "precision": 0.6046310373879342,
+                "recall": 0.521848317428428,
+                "ap50": 0.5525732066117126,
+                "ap50_95": 0.26856274344945297
+              },
+              {
+                "class_id": 2,
+                "precision": 0.6399788199293341,
+                "recall": 0.5886766712141883,
+                "ap50": 0.6340265954784225,
+                "ap50_95": 0.3514579593166423
+              },
+              {
+                "class_id": 3,
+                "precision": 0.83593217719046,
+                "recall": 0.08490566037735849,
+                "ap50": 0.20775200440962205,
+                "ap50_95": 0.12483148209394594
+              },
+              {
+                "class_id": 4,
+                "precision": 0.6058299428629579,
+                "recall": 0.4180243059201496,
+                "ap50": 0.4584129502180533,
+                "ap50_95": 0.20918785946392063
+              },
+              {
+                "class_id": 5,
+                "precision": 0.6115606190409518,
+                "recall": 0.6289308176100629,
+                "ap50": 0.6155780088208456,
+                "ap50_95": 0.39208780857825914
+              },
+              {
+                "class_id": 6,
+                "precision": 0.5209841892308388,
+                "recall": 0.4605647517039922,
+                "ap50": 0.4471032161713341,
+                "ap50_95": 0.24717747537301565
+              },
+              {
+                "class_id": 7,
+                "precision": 0.7278830997115135,
+                "recall": 0.7421203438395415,
+                "ap50": 0.7705463258863897,
+                "ap50_95": 0.42265411763362265
+              },
+              {
+                "class_id": 8,
+                "precision": 0.607988147626839,
+                "recall": 0.5024875621890548,
+                "ap50": 0.575863546429932,
+                "ap50_95": 0.4363388528648768
+              },
+              {
+                "class_id": 9,
+                "precision": 1.0,
+                "recall": 0.0,
+                "ap50": 0.0,
+                "ap50_95": 0.0
+              }
+            ]
+          },
+          "sensor_noise": {
+            "metrics": {
+              "metrics/precision(B)": 0.4389027941711195,
+              "metrics/recall(B)": 0.18363187361295058,
+              "metrics/mAP50(B)": 0.16594150051535633,
+              "metrics/mAP50-95(B)": 0.09191123315919328,
+              "fitness": 0.09191123315919328
+            },
+            "speed": {
+              "preprocess": 0.543714578826649,
+              "inference": 5.633665793780581,
+              "loss": 0.0037356642464673163,
+              "postprocess": 1.1177609880685155
+            },
+            "per_class": [
+              {
+                "class_id": 0,
+                "precision": 0.370367219090627,
+                "recall": 0.13461164378737747,
+                "ap50": 0.11006808211221876,
+                "ap50_95": 0.04675391833026687
+              },
+              {
+                "class_id": 1,
+                "precision": 0.2849025834698744,
+                "recall": 0.17076845806127575,
+                "ap50": 0.1191717391246047,
+                "ap50_95": 0.04903504480487736
+              },
+              {
+                "class_id": 2,
+                "precision": 0.4184470067951621,
+                "recall": 0.15893587994542974,
+                "ap50": 0.1555671084241712,
+                "ap50_95": 0.06347095377931848
+              },
+              {
+                "class_id": 3,
+                "precision": 0.6006048173965868,
+                "recall": 0.009433962264150943,
+                "ap50": 0.04476033704608735,
+                "ap50_95": 0.02341020636374711
+              },
+              {
+                "class_id": 4,
+                "precision": 0.1499424404523354,
+                "recall": 0.11538461538461539,
+                "ap50": 0.05490036081434197,
+                "ap50_95": 0.026134430340350144
+              },
+              {
+                "class_id": 5,
+                "precision": 0.5473281905777628,
+                "recall": 0.42138364779874216,
+                "ap50": 0.42537510648906757,
+                "ap50_95": 0.2575872803483645
+              },
+              {
+                "class_id": 6,
+                "precision": 0.28539951274942876,
+                "recall": 0.24888567621717064,
+                "ap50": 0.18440574162767603,
+                "ap50_95": 0.09970402944490812
+              },
+              {
+                "class_id": 7,
+                "precision": 0.5485616253089154,
+                "recall": 0.33810888252148996,
+                "ap50": 0.36876496986621016,
+                "ap50_95": 0.20249891489676952
+              },
+              {
+                "class_id": 8,
+                "precision": 0.18347454587050258,
+                "recall": 0.23880597014925373,
+                "ap50": 0.19640155964918582,
+                "ap50_95": 0.15051755328333058
+              },
+              {
+                "class_id": 9,
+                "precision": 1.0,
+                "recall": 0.0,
+                "ap50": 0.0,
+                "ap50_95": 0.0
+              }
+            ]
+          },
+          "motion_diagonal": {
+            "metrics": {
+              "metrics/precision(B)": 0.2872547483004434,
+              "metrics/recall(B)": 0.13229701378605038,
+              "metrics/mAP50(B)": 0.11068508568353015,
+              "metrics/mAP50-95(B)": 0.050275900345606805,
+              "fitness": 0.050275900345606805
+            },
+            "speed": {
+              "preprocess": 0.9233071003651379,
+              "inference": 5.71647176027587,
+              "loss": 0.004166171795635265,
+              "postprocess": 1.2279002159952335
+            },
+            "per_class": [
+              {
+                "class_id": 0,
+                "precision": 0.22552690328442224,
+                "recall": 0.10859240069084629,
+                "ap50": 0.07344406378937439,
+                "ap50_95": 0.029360687284762647
+              },
+              {
+                "class_id": 1,
+                "precision": 0.2703744037194096,
+                "recall": 0.030135610246107485,
+                "ap50": 0.02779860576656646,
+                "ap50_95": 0.010944635617049477
+              },
+              {
+                "class_id": 2,
+                "precision": 0.2542879667481406,
+                "recall": 0.11304666551881296,
+                "ap50": 0.09397293767831347,
+                "ap50_95": 0.03842762431146645
+              },
+              {
+                "class_id": 3,
+                "precision": 0.4088625296646916,
+                "recall": 0.009433962264150943,
+                "ap50": 0.017331896620621283,
+                "ap50_95": 0.00867068236330831
+              },
+              {
+                "class_id": 4,
+                "precision": 0.12319988721307643,
+                "recall": 0.12362637362637363,
+                "ap50": 0.04646914930198901,
+                "ap50_95": 0.01498545515840285
+              },
+              {
+                "class_id": 5,
+                "precision": 0.45864913854183254,
+                "recall": 0.44654088050314467,
+                "ap50": 0.4124014125576329,
+                "ap50_95": 0.21136001264194074
+              },
+              {
+                "class_id": 6,
+                "precision": 0.3348761624802714,
+                "recall": 0.19279454722492698,
+                "ap50": 0.14797126317270684,
+                "ap50_95": 0.07111547006219249
+              },
+              {
+                "class_id": 7,
+                "precision": 0.47362006675228696,
+                "recall": 0.2191977077363897,
+                "ap50": 0.21807211022785,
+                "ap50_95": 0.08340648957768684
+              },
+              {
+                "class_id": 8,
+                "precision": 0.3231504246003031,
+                "recall": 0.07960199004975124,
+                "ap50": 0.06938941772024709,
+                "ap50_95": 0.03448794643925829
+              },
+              {
+                "class_id": 9,
+                "precision": 0.0,
+                "recall": 0.0,
+                "ap50": 0.0,
+                "ap50_95": 0.0
+              }
+            ]
+          },
+          "defocus": {
+            "metrics": {
+              "metrics/precision(B)": 0.3146168888818971,
+              "metrics/recall(B)": 0.216276086345938,
+              "metrics/mAP50(B)": 0.1909938607961297,
+              "metrics/mAP50-95(B)": 0.09327291367706815,
+              "fitness": 0.09327291367706815
+            },
+            "speed": {
+              "preprocess": 1.170862392013329,
+              "inference": 5.913255075537922,
+              "loss": 0.004335907161705745,
+              "postprocess": 1.2657928995941286
+            },
+            "per_class": [
+              {
+                "class_id": 0,
+                "precision": 0.38886823021617783,
+                "recall": 0.16402250225621298,
+                "ap50": 0.15038612654605454,
+                "ap50_95": 0.06347299593298807
+              },
+              {
+                "class_id": 1,
+                "precision": 0.35979308401880383,
+                "recall": 0.1607232546459066,
+                "ap50": 0.1435369364294201,
+                "ap50_95": 0.05828962488090387
+              },
+              {
+                "class_id": 2,
+                "precision": 0.4538947285661617,
+                "recall": 0.15961800818553887,
+                "ap50": 0.18514361224266035,
+                "ap50_95": 0.08247236320050262
+              },
+              {
+                "class_id": 3,
+                "precision": 0.2371272903204813,
+                "recall": 0.041170844534773994,
+                "ap50": 0.07760325844554017,
+                "ap50_95": 0.03318183474924444
+              },
+              {
+                "class_id": 4,
+                "precision": 0.2619500118889034,
+                "recall": 0.18681318681318682,
+                "ap50": 0.13632443918216236,
+                "ap50_95": 0.05235741519310897
+              },
+              {
+                "class_id": 5,
+                "precision": 0.38720155094886965,
+                "recall": 0.559748427672956,
+                "ap50": 0.49540977579206463,
+                "ap50_95": 0.27096780233005946
+              },
+              {
+                "class_id": 6,
+                "precision": 0.2883072919166685,
+                "recall": 0.3476144109055501,
+                "ap50": 0.25284459822521255,
+                "ap50_95": 0.12688783713950597
+              },
+              {
+                "class_id": 7,
+                "precision": 0.2512691048384554,
+                "recall": 0.3667621776504298,
+                "ap50": 0.25853711592056483,
+                "ap50_95": 0.11427581932186963
+              },
+              {
+                "class_id": 8,
+                "precision": 0.5177575961044488,
+                "recall": 0.17628805079482499,
+                "ap50": 0.21015274517761745,
+                "ap50_95": 0.13082344402249851
+              },
+              {
+                "class_id": 9,
+                "precision": 0.0,
+                "recall": 0.0,
+                "ap50": 0.0,
+                "ap50_95": 0.0
+              }
+            ]
+          },
+          "mixed_diagonal": {
+            "metrics": {
+              "metrics/precision(B)": 0.2878569339673581,
+              "metrics/recall(B)": 0.01344440535902135,
+              "metrics/mAP50(B)": 0.009466201613289125,
+              "metrics/mAP50-95(B)": 0.004452533101100243,
+              "fitness": 0.004452533101100243
+            },
+            "speed": {
+              "preprocess": 1.1057071544287311,
+              "inference": 5.93201673865316,
+              "loss": 0.0040068574866456465,
+              "postprocess": 1.2197028347624836
+            },
+            "per_class": [
+              {
+                "class_id": 0,
+                "precision": 0.07177269171193451,
+                "recall": 0.018350604490500865,
+                "ap50": 0.007282148820651419,
+                "ap50_95": 0.003507611327727265
+              },
+              {
+                "class_id": 1,
+                "precision": 0.02528928556170094,
+                "recall": 0.0015067805123053742,
+                "ap50": 0.0016752725186460126,
+                "ap50_95": 0.0009591939185312679
+              },
+              {
+                "class_id": 2,
+                "precision": 0.09683947664620565,
+                "recall": 0.002728512960436562,
+                "ap50": 0.0034330011074197118,
+                "ap50_95": 0.0011962594476584393
+              },
+              {
+                "class_id": 3,
+                "precision": 1.0,
+                "recall": 0.0,
+                "ap50": 0.0,
+                "ap50_95": 0.0
+              },
+              {
+                "class_id": 4,
+                "precision": 0.0081728211189691,
+                "recall": 0.008241758241758242,
+                "ap50": 0.0017709689632949073,
+                "ap50_95": 0.0005412093940787759
+              },
+              {
+                "class_id": 5,
+                "precision": 1.0,
+                "recall": 0.0,
+                "ap50": 0.03333333333333333,
+                "ap50_95": 0.01417857142857143
+              },
+              {
+                "class_id": 6,
+                "precision": 0.14505340914446777,
+                "recall": 0.09931840311587146,
+                "ap50": 0.04158511380306412,
+                "ap50_95": 0.02055994273422095
+              },
+              {
+                "class_id": 7,
+                "precision": 0.5314416554903036,
+                "recall": 0.004297994269340974,
+                "ap50": 0.00556910569105691,
+                "ap50_95": 0.0035792747863580875
+              },
+              {
+                "class_id": 8,
+                "precision": 0.0,
+                "recall": 0.0,
+                "ap50": 1.30718954248366e-05,
+                "ap50_95": 3.26797385620915e-06
+              },
+              {
+                "class_id": 9,
+                "precision": 0.0,
+                "recall": 0.0,
+                "ap50": 0.0,
+                "ap50_95": 0.0
+              }
+            ]
+          }
+        }
+      }
+    },
+    "yolov8s": {
+      "source": "C:\\Users\\prate\\OneDrive\\Desktop\\RoadDamageDetection\\experiments\\paper_noise_20261010\\evaluation_20261015_124402\\comparison.json",
+      "evaluation_complete": false,
+      "results": {
+        "weights": "C:\\Users\\prate\\OneDrive\\Desktop\\RoadDamageDetection\\experiments\\detector_comparison_20261014\\runs\\yolov8s\\weights\\best.pt",
+        "sha256": "4aef1d224c4025c529e348fbe2c9d6f379af457a85d8686ecba9e122dd7c7840",
+        "conditions": {
+          "clean": {
+            "metrics": {
+              "metrics/precision(B)": 0.6810321471437063,
+              "metrics/recall(B)": 0.468655938088407,
+              "metrics/mAP50(B)": 0.5095797084533311,
+              "metrics/mAP50-95(B)": 0.29317205101956106,
+              "fitness": 0.29317205101956106
+            },
+            "speed": {
+              "preprocess": 0.3726329912036656,
+              "inference": 5.2286890659161145,
+              "loss": 0.0036228132088400615,
+              "postprocess": 1.2139359070880733
+            },
+            "per_class": [
+              {
+                "class_id": 0,
+                "precision": 0.6820916832670625,
+                "recall": 0.5044291866775533,
+                "ap50": 0.5796554060420229,
+                "ap50_95": 0.3272352185616804
+              },
+              {
+                "class_id": 1,
+                "precision": 0.6350096198750708,
+                "recall": 0.5094437489964704,
+                "ap50": 0.5594508222999195,
+                "ap50_95": 0.2703520769992759
+              },
+              {
+                "class_id": 2,
+                "precision": 0.6981304744230492,
+                "recall": 0.5789612471824384,
+                "ap50": 0.6281605685093589,
+                "ap50_95": 0.3378494643671562
+              },
+              {
+                "class_id": 3,
+                "precision": 0.5212376679530197,
+                "recall": 0.2773552187652128,
+                "ap50": 0.30497709189337474,
+                "ap50_95": 0.17017967125374012
+              },
+              {
+                "class_id": 4,
+                "precision": 0.6611317842916399,
+                "recall": 0.4234318156307835,
+                "ap50": 0.5007152728304171,
+                "ap50_95": 0.22957363642718076
+              },
+              {
+                "class_id": 5,
+                "precision": 0.6067911994218566,
+                "recall": 0.5974842767295597,
+                "ap50": 0.6098024611090156,
+                "ap50_95": 0.39935818574950355
+              },
+              {
+                "class_id": 6,
+                "precision": 0.5703287793854915,
+                "recall": 0.45624021315046603,
+                "ap50": 0.4691781806882281,
+                "ap50_95": 0.26479180214978393
+              },
+              {
+                "class_id": 7,
+                "precision": 0.7975790306678487,
+                "recall": 0.7521489971346705,
+                "ap50": 0.8076391055414149,
+                "ap50_95": 0.44984901732345517
+              },
+              {
+                "class_id": 8,
+                "precision": 0.638021232152024,
+                "recall": 0.5870646766169154,
+                "ap50": 0.6362181756195596,
+                "ap50_95": 0.4825314373638343
+              },
+              {
+                "class_id": 9,
+                "precision": 1.0,
+                "recall": 0.0,
+                "ap50": 0.0,
+                "ap50_95": 0.0
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "not_started": [
+    "YOLOv10s",
+    "YOLO11s",
+    "YOLO12s"
+  ],
+  "blocked": [
+    "Neurocomputing YOLO-RD: exact implementation unavailable"
+  ],
+  "notes": [
+    "All displayed scores are clean validation, best checkpoint, except YOLO26s uses recorded best training-validation epoch.",
+    "Shared N-RDD2024 v3 ten-class split:13782train/3704val/1509internaltest;640input.",
+    "30-epoch variants independently fine-tuned the same100-epoch noise checkpoint.",
+    "YOLOv6s bundled implementation trained from scratch; others pretrained. YOLOv5su is updated anchor-free variant.",
+    "Nine completed research runs,890 epochs total,excluding smoke tests. Current queue300/600.",
+    "YOLOv8s stress evaluation was interrupted by requested pause. Resume evaluation without retraining before advancing queue.",
+    "Current launcher skips completed models and would omit unfinished stress evaluation; use a repaired resume sequence.",
+    "Precision and recall are validation confidence-curve summaries; mAP is not classification accuracy."
+  ]
+}
