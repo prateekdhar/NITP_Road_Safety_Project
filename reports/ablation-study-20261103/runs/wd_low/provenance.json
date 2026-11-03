@@ -1,0 +1,62 @@
+{
+  "key": "wd_low",
+  "source": "${PROJECT_ROOT}\\yolo26s.pt",
+  "source_sha256": "646f8bc3fe0a656803d95c294f7852321748cb29d13466a1af8862e2db384a1b",
+  "spec": {
+    "weight_decay": 0.0001
+  },
+  "config": {
+    "data": "${PROJECT_ROOT}\\experiments\\oct04_200\\baseline.yaml",
+    "epochs": 100,
+    "patience": 0,
+    "imgsz": 640,
+    "batch": 4,
+    "device": 0,
+    "workers": 0,
+    "amp": true,
+    "cache": false,
+    "seed": 42,
+    "deterministic": true,
+    "optimizer": "MuSGD",
+    "lr0": 0.01,
+    "momentum": 0.9,
+    "weight_decay": 0.0001,
+    "warmup_bias_lr": 0.0,
+    "mosaic": 1.0,
+    "close_mosaic": 10,
+    "save": true,
+    "save_period": 10,
+    "plots": true,
+    "exist_ok": false,
+    "project": "${PROJECT_ROOT}\\experiments\\yolo26s_ablation_20261021\\runs",
+    "name": "wd_low"
+  },
+  "started_at": "2026-10-23T01:06:21.041881+00:00",
+  "smoke_only": false,
+  "parameters": 9955604,
+  "gflops": 22.7782656,
+  "strides": [
+    8.0,
+    16.0,
+    32.0
+  ],
+  "transfer": {
+    "matched_tensors": 696,
+    "target_tensors": 708,
+    "unmatched_keys": [
+      "model.23.cv3.0.2.weight",
+      "model.23.cv3.0.2.bias",
+      "model.23.cv3.1.2.weight",
+      "model.23.cv3.1.2.bias",
+      "model.23.cv3.2.2.weight",
+      "model.23.cv3.2.2.bias",
+      "model.23.one2one_cv3.0.2.weight",
+      "model.23.one2one_cv3.0.2.bias",
+      "model.23.one2one_cv3.1.2.weight",
+      "model.23.one2one_cv3.1.2.bias",
+      "model.23.one2one_cv3.2.2.weight",
+      "model.23.one2one_cv3.2.2.bias"
+    ]
+  },
+  "optimizer": "MuSGD"
+}

@@ -11,8 +11,8 @@ data/images/
 data/labels/
 data/processed/images/
 data/processed/labels/
-runs/
-experiments/**/runs/
+/runs/
+/experiments/**/runs/
 experiments/**/preflight/
 experiments/**/validation/
 experiments/**/logs/

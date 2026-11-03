@@ -1,0 +1,54 @@
+{
+  "key": "noise_025",
+  "source": "${PROJECT_ROOT}\\yolo26s.pt",
+  "source_sha256": "646f8bc3fe0a656803d95c294f7852321748cb29d13466a1af8862e2db384a1b",
+  "spec": {
+    "noise_probability": 0.25
+  },
+  "config": {
+    "data": "${PROJECT_ROOT}\\experiments\\oct04_200\\baseline.yaml",
+    "epochs": 100,
+    "patience": 0,
+    "imgsz": 640,
+    "batch": 4,
+    "device": 0,
+    "workers": 0,
+    "amp": true,
+    "cache": false,
+    "seed": 42,
+    "deterministic": true,
+    "optimizer": "MuSGD",
+    "lr0": 0.01,
+    "momentum": 0.9,
+    "weight_decay": 0.0005,
+    "warmup_bias_lr": 0.0,
+    "mosaic": 1.0,
+    "close_mosaic": 10,
+    "save": true,
+    "save_period": 10,
+    "plots": true,
+    "exist_ok": false,
+    "project": "${PROJECT_ROOT}\\experiments\\yolo26s_ablation_20261021\\runs",
+    "name": "noise_025"
+  },
+  "started_at": "2026-10-31T12:29:43.363593+00:00",
+  "smoke_only": false,
+  "resumed_from_epoch": 23,
+  "resume_checkpoint": "${PROJECT_ROOT}\\experiments\\yolo26s_ablation_20261021\\runs\\noise_025\\weights\\last.pt",
+  "resume_sha256": "197f24036f390b9afc1c6ded0e8c4ec964f2d95f80cd2db0c81ba92ae9f9af8f",
+  "original_started_at": "2026-10-30T15:28:36.185925+00:00",
+  "resume_note": "Optimizer and checkpoint restored; RNG trajectory may differ after restart",
+  "parameters": 9955604,
+  "gflops": 22.7782656,
+  "strides": [
+    8.0,
+    16.0,
+    32.0
+  ],
+  "transfer": {
+    "matched_tensors": 708,
+    "target_tensors": 708,
+    "unmatched_keys": []
+  },
+  "optimizer": "MuSGD"
+}
